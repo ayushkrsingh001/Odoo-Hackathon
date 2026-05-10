@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Converter — Traveloop</title>
+  <meta name="description" content="Convert currencies with live exchange rates and get travel budget insights for your upcoming international trips.">
+  <link rel="stylesheet" href="src/styles/main.css">
+  <style>
+    .curr-hero {
+      border-radius: 24px; padding: 40px 48px;
+      background: linear-gradient(135deg, #0f172a, #1e293b, #334155); color: #fff;
+      margin-bottom: 40px; position: relative; overflow: hidden;
+    }
+    .curr-hero::before {
+      content: ''; position: absolute; top: -50%; right: -10%; width: 500px; height: 500px;
+      border-radius: 50%; background: radial-gradient(circle, rgba(99,102,241,0.2), transparent 70%); pointer-events: none;
+    }
+    .curr-hero h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; position: relative; z-index: 1; }
+    .curr-hero p { font-size: 15px; opacity: 0.85; max-width: 500px; line-height: 1.6; position: relative; z-index: 1; }
+    .curr-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.12); padding: 5px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; margin-bottom: 14px; position: relative; z-index: 1; }
+
+    .curr-container { display: grid; grid-template-columns: 1fr 340px; gap: 32px; align-items: start; }
+    
+    .curr-card { background: #fff; border-radius: 24px; padding: 32px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 4px 24px rgba(0,0,0,0.04); }
+    
+    .curr-input-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+    .curr-input-group label { font-size: 13px; font-weight: 700; color: #334155; }
+    .curr-input-wrapper { position: relative; display: flex; align-items: center; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 16px; transition: all 0.2s; padding: 0 16px; }
+    .curr-input-wrapper:focus-within { border-color: #4f46e5; background: #fff; box-shadow: 0 0 0 3px rgba(79,70,229,0.1); }
+    .curr-input-wrapper input { flex: 1; padding: 16px 0; border: none; background: transparent; font-size: 24px; font-weight: 700; color: #0f172a; outline: none; width: 100%; }
+    .curr-input-wrapper select { border: none; background: transparent; font-size: 18px; font-weight: 700; color: #0f172a; outline: none; cursor: pointer; padding: 12px 0 12px 12px; border-left: 2px solid #e2e8f0; margin-left: 12px; }
+    
+    .curr-swap { display: flex; justify-content: center; margin: -12px 0 12px; position: relative; z-index: 2; }
+    .curr-swap-btn { background: #4f46e5; color: #fff; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 4px solid #fff; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 12px rgba(79,70,229,0.2); }
+    .curr-swap-btn:hover { transform: scale(1.1) rotate(180deg); }
+
+    .curr-quick-btns { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+    .curr-quick-btn { padding: 8px 16px; border-radius: 999px; background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 13px; font-weight: 600; color: #475569; cursor: pointer; transition: all 0.2s; }
+    .curr-quick-btn:hover { background: #e0e7ff; color: #4f46e5; border-color: #c7d2fe; }
+
+    .curr-result { background: #f8fafc; border-radius: 16px; padding: 24px; text-align: center; border: 1px solid #e2e8f0; margin-top: 16px; display: none; }
+    .curr-result.show { display: block; animation: slideUp 0.3s ease; }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    
+    .curr-result h2 { font-size: 36px; font-weight: 800; color: #0f172a; margin-bottom: 4px; }
+    .curr-result .rate { font-size: 14px; font-weight: 600; color: #64748b; margin-bottom: 16px; }
+    .curr-insight { background: #e0e7ff; color: #3730a3; padding: 16px; border-radius: 12px; font-size: 14px; line-height: 1.5; text-align: left; display: flex; gap: 12px; align-items: flex-start; }
+    .curr-insight .material-symbols-outlined { color: #4f46e5; }
+    .curr-updated { font-size: 12px; color: #94a3b8; margin-top: 16px; }
+
+    .curr-history { background: #fff; border-radius: 24px; padding: 28px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 4px 24px rgba(0,0,0,0.02); height: max-content; }
+    .curr-history h3 { font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+    .curr-history-list { display: flex; flex-direction: column; gap: 12px; }
+    .curr-history-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f1f5f9; }
+    .curr-history-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .curr-history-val { font-size: 14px; font-weight: 700; color: #0f172a; }
+    .curr-history-sub { font-size: 12px; color: #64748b; margin-top: 2px; }
+    .curr-history-rate { font-size: 13px; font-weight: 600; color: #059669; background: #ecfdf5; padding: 4px 8px; border-radius: 8px; }
+
+    @media(max-width: 900px) {
+      .curr-container { grid-template-columns: 1fr; }
+      .curr-hero { padding: 32px 24px; }
+      .curr-hero h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body class="page-with-sidebar">
+
+  <script src="src/scripts/navigation.js"></script>
+  <script>renderSidebar('currency'); renderTopNav('Traveloop'); renderBottomNav('currency');</script>
+
+  <main class="page-main page-main-full">
+    <!-- Trip Selector Section -->
+    <section id="trip-selector-section" style="padding-top: 8px;"></section>
+
+    <!-- Hero -->
+    <div class="curr-hero">
+      <div class="curr-badge"><span class="material-symbols-outlined" style="font-size:16px;">currency_exchange</span> Real-time Rates</div>
+      <h1>Currency Converter 💱</h1>
+      <p>Instantly convert currencies using live exchange rates and get travel budget insights for your international trips.</p>
+    </div>
+
+    <div class="curr-container">
+      <!-- Converter Card -->
+      <div class="curr-card">
+        <div class="curr-input-group">
+          <label for="from-amount">Amount</label>
+          <div class="curr-input-wrapper">
+            <input type="number" id="from-amount" value="1000" step="0.01">
+            <select id="from-currency">
+              <option value="USD">USD ($)</option>
+              <option value="EUR">EUR (€)</option>
+              <option value="GBP">GBP (£)</option>
+              <option value="INR" selected>INR (₹)</option>
+              <option value="AED">AED (د.إ)</option>
+              <option value="SGD">SGD (S$)</option>
+              <option value="THB">THB (฿)</option>
+              <option value="JPY">JPY (¥)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="curr-swap">
+          <button class="curr-swap-btn" id="swap-btn">
+            <span class="material-symbols-outlined">swap_vert</span>
+          </button>
+        </div>
+
+        <div class="curr-input-group">
+          <label for="to-currency">Convert to</label>
+          <div class="curr-input-wrapper">
+            <input type="text" id="to-amount" placeholder="Result" readonly>
+            <select id="to-currency">
+              <option value="USD" selected>USD ($)</option>
+              <option value="EUR">EUR (€)</option>
+              <option value="GBP">GBP (£)</option>
+              <option value="INR">INR (₹)</option>
+              <option value="AED">AED (د.إ)</option>
+              <option value="SGD">SGD (S$)</option>
+              <option value="THB">THB (฿)</option>
+              <option value="JPY">JPY (¥)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="curr-quick-btns">
+          <button class="curr-quick-btn" data-from="USD" data-to="EUR">USD → EUR</button>
+          <button class="curr-quick-btn" data-from="EUR" data-to="USD">EUR → USD</button>
+          <button class="curr-quick-btn" data-from="GBP" data-to="EUR">GBP → EUR</button>
+          <button class="curr-quick-btn" data-from="INR" data-to="USD">INR → USD</button>
+        </div>
+
+        <button class="btn btn-primary" id="curr-btn" style="width:100%; padding:16px; border-radius:16px; font-size:16px; font-weight:700; margin-top:8px;">
+          Convert Now
+        </button>
+
+        <div class="curr-result" id="curr-result">
+          <div style="font-size:16px; color:#64748b; font-weight:600; margin-bottom:4px;" id="res-amount-from">1,000 INR =</div>
+          <h2 id="res-amount-to">11.97 USD</h2>
+          <div class="rate" id="res-rate">1 INR = 0.01197 USD</div>
+          
+          <div class="curr-insight">
+            <span class="material-symbols-outlined">lightbulb</span>
+            <div>
+              <strong style="display:block;margin-bottom:4px;color:#312e81;">Travel Insight</strong>
+              <span id="res-insight">This amount is good for a quick meal or a short taxi ride.</span>
+            </div>
+          </div>
+          <div class="curr-updated" id="res-updated">Last updated: Just now</div>
+        </div>
+      </div>
+
+      <!-- Recent Conversions -->
+      <div class="curr-history">
+        <h3><span class="material-symbols-outlined" style="color:#4f46e5;">history</span> Recent Conversions</h3>
+        <div class="curr-history-list" id="curr-history-list">
+          <div style="text-align:center; padding:20px; color:#94a3b8; font-size:13px;">No recent conversions.</div>
+        </div>
+      </div>
+    </div>
+    
+    <div style="height:40px;"></div>
+  </main>
+
+  <script src="src/scripts/app.js"></script>
+  <script type="module" src="src/js/pages/currencyConverter.js"></script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shared Trip - Traveloop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e7e7f3",
+                        "surface-dim": "#d9d9e5",
+                        "surface-bright": "#faf8ff",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "tertiary-fixed": "#ffdbcd",
+                        "tertiary": "#943700",
+                        "inverse-primary": "#b4c5ff",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2e3039",
+                        "surface-tint": "#0053db",
+                        "on-surface-variant": "#434655",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "surface": "#faf8ff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-primary-fixed": "#00174b",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#2563eb",
+                        "on-surface": "#191b23",
+                        "outline": "#737686",
+                        "secondary": "#006b5f",
+                        "on-tertiary-container": "#ffede6",
+                        "secondary-container": "#6df5e1",
+                        "surface-container-low": "#f3f3fe",
+                        "on-secondary-fixed": "#00201c",
+                        "on-secondary-fixed-variant": "#005048",
+                        "on-secondary-container": "#006f64",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#360f00",
+                        "outline-variant": "#c3c6d7",
+                        "inverse-on-surface": "#f0f0fb",
+                        "on-primary-container": "#eeefff",
+                        "on-background": "#191b23",
+                        "surface-variant": "#e1e2ed",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "secondary-fixed": "#71f8e4",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#ededf9",
+                        "tertiary-container": "#bc4800",
+                        "background": "#faf8ff",
+                        "surface-container-highest": "#e1e2ed",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#004ac6",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#ffb596"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "unit": "4px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "stack-gap": "16px",
+                        "margin-mobile": "16px",
+                        "padding-card": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1", "fontWeight": "600"}],
+                        "headline-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "headline-xl": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Hide scrollbar for clean look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<!-- TopNavBar (Simplified for Shared View) -->
+<nav class="bg-surface/80 backdrop-blur-md text-primary font-label-md docked full-width top-0 shadow-sm cursor-pointer active:opacity-70 fixed top-0 right-0 w-full z-30 flex justify-between items-center px-margin-mobile lg:px-margin-desktop py-4">
+<div class="flex items-center gap-4">
+<span class="font-headline-md text-headline-md font-bold text-primary">Traveloop</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary-container text-on-primary-container px-6 py-3 rounded-[12px] font-label-md flex items-center gap-2 hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+                Copy this Trip
+            </button>
+<button class="bg-surface-variant text-on-surface-variant w-[40px] h-[40px] rounded-[12px] flex items-center justify-center hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="flex-grow pt-[72px] pb-margin-mobile lg:pb-margin-desktop">
+<!-- Hero Header -->
+<header class="relative w-full h-[512px] lg:h-[614px] bg-surface-container-highest">
+<img alt="Trip Cover Photo" class="w-full h-full object-cover" data-alt="A breathtaking, wide-angle landscape photograph of a romantic European city at golden hour, capturing the essence of an inspiring travel journey. The scene features historic architecture, terracotta rooftops, and a winding river reflecting the soft, warm light of the setting sun. The lighting is ethereal and glowing, creating a premium, inviting atmosphere. The color palette emphasizes warm oranges, soft pinks, and deep blues, perfectly aligning with a high-end, serene travel lifestyle aesthetic. The composition is expansive, leaving ample space for a sense of wanderlust and discovery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7CTJYhzksoSgZhVwPtdBN9yPifpKQ-9-WoPVswV0KCKWtyTOuJrgzzCsHF4-uwEm6AukQGG-PlcXldUmHFx_1eJ3OEwuxi2BCD87OoIwKZbfn1GAUHaKCGWKWwFkJjwWZLpQ4Io3Kje7xAW60oK_LCPP4zwWkQR5hR-shca1KuRuTTfGIOP5fTzBj6vvtbrEgs_5YnbmVZILSYp9QalL_VcTABUso_tpMi9XTyUDG-R0i1U5UzFmcMfSE5ppkTz7hrbDDAI50AfQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+<div class="absolute bottom-0 left-0 w-full px-margin-mobile lg:px-margin-desktop pb-10 pt-20">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-surface-bright/20 backdrop-blur-md text-on-secondary px-4 py-1.5 rounded-full font-label-sm border border-surface-bright/30">10 Days</span>
+<span class="bg-surface-bright/20 backdrop-blur-md text-on-secondary px-4 py-1.5 rounded-full font-label-sm border border-surface-bright/30">Paris &amp; Rome</span>
+<span class="bg-surface-bright/20 backdrop-blur-md text-on-secondary px-4 py-1.5 rounded-full font-label-sm border border-surface-bright/30">Couples Retreat</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-secondary mb-2">European Romance &amp; Gastronomy</h1>
+<p class="font-body-lg text-body-lg text-on-secondary/80 max-w-2xl">A curated journey through the culinary capitals of Europe. Featuring hidden bistros, iconic landmarks, and boutique stays.</p>
+<div class="mt-8 flex items-center gap-4">
+<img alt="Creator Avatar" class="w-12 h-12 rounded-full border-2 border-surface-bright" data-alt="A high-quality, professional headshot of a smiling, stylish individual against a soft, light background, representing a trusted travel curator. The lighting is bright, flattering, and natural, matching a modern, approachable aesthetic. The image is cropped to a perfect circle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGtEL40B6KLQK11j64QLv0uH26stFmK2mfgneN-M8-qS10jN5PrbxYkCSmqRj5hFrddDs9xX8urVivOyzjk6bknooidHKiyT2NPVAP0jbAUS-xq6r6dCQp91McYPb7pQ39Uxad_hypKmvXn7YqFH3guiTh0-_tg2GvWFyoRRzqZQ-kgJAaZd7vLZOEg7sxwX8ApP0nNsago0xWZfDQq86gJIWtNUDdZnLR8NISpTaE6ylwls7mWcuodSvqevINCl1zQaSLUXVgsko"/>
+<div>
+<p class="font-label-md text-label-md text-on-secondary">Curated by Sarah Jenkins</p>
+<p class="font-body-sm text-body-sm text-on-secondary/70">Expert Planner</p>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Container -->
+<div class="max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop mt-gutter grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Itinerary Details (8 cols) -->
+<div class="lg:col-span-8 flex flex-col gap-gutter">
+<!-- Day 1 Card -->
+<div class="bg-surface-container-lowest rounded-[24px] p-padding-card shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-surface-variant/50 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-[4px] bg-primary"></div>
+<div class="flex items-center gap-3 mb-6">
+<div class="bg-primary-container/10 text-primary w-12 h-12 rounded-[12px] flex items-center justify-center font-headline-md">
+                             1
+                         </div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Arrival in Paris</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Check-in and Evening Stroll</p>
+</div>
+</div>
+<!-- Timeline Items -->
+<div class="pl-6 border-l-2 border-surface-variant ml-6 space-y-8 relative">
+<!-- Item 1 -->
+<div class="relative">
+<div class="absolute w-4 h-4 bg-surface-container-lowest border-2 border-primary rounded-full -left-[27px] top-1"></div>
+<div class="flex flex-col sm:flex-row gap-4 sm:items-start">
+<div class="w-full sm:w-24 shrink-0 font-label-md text-on-surface-variant pt-1">
+                                     2:00 PM
+                                 </div>
+<div class="bg-surface rounded-[16px] p-4 flex-grow border border-surface-variant/30 flex gap-4">
+<div class="bg-secondary-container/20 text-on-secondary-container w-10 h-10 rounded-[8px] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">hotel</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-1">Check-in at Le Meurice</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Settle into the suite overlooking the Tuileries Garden.</p>
+<span class="bg-surface-variant text-on-surface-variant px-2 py-1 rounded-[4px] font-label-sm inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                                             228 Rue de Rivoli
+                                         </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="relative">
+<div class="absolute w-4 h-4 bg-surface-container-lowest border-2 border-primary rounded-full -left-[27px] top-1"></div>
+<div class="flex flex-col sm:flex-row gap-4 sm:items-start">
+<div class="w-full sm:w-24 shrink-0 font-label-md text-on-surface-variant pt-1">
+                                     7:30 PM
+                                 </div>
+<div class="bg-surface rounded-[16px] overflow-hidden border border-surface-variant/30 flex-grow">
+<div class="h-32 bg-surface-container-high relative">
+<img alt="Restaurant View" class="w-full h-full object-cover" data-alt="A meticulously plated, high-end culinary dish presented on a minimalist ceramic plate, set against a dark, moody restaurant interior. The lighting is focused and dramatic, highlighting the textures and vibrant colors of the food, creating a premium, gastronomic experience aesthetic. The background is softly blurred, emphasizing the sophisticated atmosphere of a fine-dining establishment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_ATwWZ6aveI5--l-XeBglTr6FMcPjTgCFSqX0n5AJWu0uE1mV5aghvJq5AFVbb0OBmgpkiGfDY5neJAJwWgzXUi-3IuTMh8uqDXto6L7o1h9Xclx9pNAw8WQgRjQX2fb1aduYKHoFQ9gnNVhS-VBoaUYIePJXMPAsT68j6lqdK1sp1cmo_JLTrm1VMccUujos03bslo3WLmJk9Gl-fbyg4Ie0neKfG8i5KbOV_qT5BxOvD5_mF7OKAjR3B7BzZa1YbioT9UkIcCc"/>
+</div>
+<div class="p-4 flex gap-4">
+<div class="bg-tertiary-container/20 text-tertiary w-10 h-10 rounded-[8px] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-1">Dinner at L'Arpège</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Alain Passard's iconic vegetable-centric tasting menu. Reservation confirmed for 2.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Day 2 Card -->
+<div class="bg-surface-container-lowest rounded-[24px] p-padding-card shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-surface-variant/50 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-[4px] bg-primary/40"></div>
+<div class="flex items-center gap-3 mb-6">
+<div class="bg-surface-variant text-on-surface-variant w-12 h-12 rounded-[12px] flex items-center justify-center font-headline-md">
+                             2
+                         </div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Art &amp; History</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Louvre and Le Marais</p>
+</div>
+</div>
+<p class="font-body-md text-on-surface-variant mb-4">A full day exploring classical art followed by wandering through one of Paris's most charming historic districts.</p>
+<button class="text-primary font-label-md flex items-center gap-1 hover:underline">
+                         View Full Day Itinerary <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Right Column: Map & Summary (4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-gutter sticky top-[100px]">
+<!-- Map Card -->
+<div class="bg-surface-container-lowest rounded-[24px] p-2 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-surface-variant/50 h-[300px] overflow-hidden">
+<div class="w-full h-full rounded-[16px] bg-surface-container-high relative" data-location="Paris, France" style="">
+<img alt="Map Placeholder" class="w-full h-full object-cover opacity-80 mix-blend-multiply" data-alt="A clean, modern digital map interface displaying a stylized top-down view of city streets with subtle, highlighted route markers and elegant map pins. The map utilizes a minimal, high-contrast light mode palette with soft greys, white, and precise primary blue accents to indicate paths and locations. The visual style is highly polished, resembling a premium navigation application, conveying clarity and structured travel planning." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtg3gAOJ7GTBtwv6tuJ17Wk1DndXraCHJDT7dIaraRxksj6VD9XghQrGX_-fQqGNyUhHn_8X9Hiy-yLzv-NGW6moZoVxWoqh4r_1Df1h1Ac7tlTuveiG5F-qbWiBU2kqN50ZW-ghpQmzc6AIVjx7rIS3Y-udS12XxJvjFcFRYh9XBAR_bKHjSEJWX5CN7I8H_0Y3cU42I54e4vmd_3anA9kgA3xRxjSW1NDmUhgRdZr7uOHDHsGv3DLEGp1ft9RdOe2SV8Z4g-xdU"/>
+<div class="absolute top-4 left-4 bg-surface/90 backdrop-blur-sm px-3 py-2 rounded-[8px] shadow-sm font-label-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">map</span>
+                            Interactive Map
+                        </div>
+</div>
+</div>
+<!-- Highlights Card -->
+<div class="bg-surface-container-lowest rounded-[24px] p-padding-card shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-surface-variant/50">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Trip Highlights</h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-0.5">star</span>
+<div>
+<h4 class="font-label-md text-on-surface">Michelin Dining</h4>
+<p class="font-body-sm text-on-surface-variant">3 reserved experiences</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-0.5">museum</span>
+<div>
+<h4 class="font-label-md text-on-surface">Private Tours</h4>
+<p class="font-body-sm text-on-surface-variant">Skip-the-line access included</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-0.5">train</span>
+<div>
+<h4 class="font-label-md text-on-surface">First Class Transit</h4>
+<p class="font-body-sm text-on-surface-variant">TGV between Paris &amp; Rome</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</main>
+</body></html>

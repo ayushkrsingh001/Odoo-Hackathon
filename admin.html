@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — Traveloop</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo/traveloop-icon.svg">
+  <link rel="stylesheet" href="src/styles/main.css">
+  <!-- Chart.js for Analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Admin Specific Styles */
+    :root {
+      --admin-bg: #f8fafc;
+      --admin-card: #ffffff;
+      --admin-border: #e2e8f0;
+      --admin-text: #0f172a;
+      --admin-text-muted: #64748b;
+      --admin-primary: #0f172a;
+      --admin-accent: #3b82f6;
+    }
+    body { background-color: var(--admin-bg); }
+    
+    .admin-layout {
+      display: flex;
+      min-height: 100vh;
+    }
+    
+    /* Admin Sidebar */
+    .admin-sidebar {
+      width: 260px;
+      background: var(--admin-primary);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      z-index: 100;
+    }
+    .admin-brand {
+      padding: 24px;
+      font-size: 20px;
+      font-weight: 800;
+      display: flex; align-items: center; gap: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .admin-nav {
+      flex: 1;
+      padding: 24px 16px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .admin-nav-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 14px; font-weight: 600;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .admin-nav-item:hover, .admin-nav-item.active {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+    
+    /* Admin Main Content */
+    .admin-main {
+      flex: 1;
+      margin-left: 260px;
+      padding: 32px 48px;
+    }
+    .admin-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 32px;
+    }
+    .admin-header h1 {
+      font-size: 28px; font-weight: 800; color: var(--admin-text);
+    }
+    .admin-profile {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--admin-card); padding: 8px 16px; border-radius: 999px;
+      border: 1px solid var(--admin-border);
+    }
+    
+    /* KPI Grid */
+    .kpi-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px; margin-bottom: 32px;
+    }
+    .kpi-card {
+      background: var(--admin-card); border-radius: 20px; padding: 24px;
+      border: 1px solid var(--admin-border);
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+      display: flex; align-items: center; gap: 16px;
+    }
+    .kpi-icon {
+      width: 56px; height: 56px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+    }
+    .kpi-val { font-size: 28px; font-weight: 800; color: var(--admin-text); margin-bottom: 4px; }
+    .kpi-lbl { font-size: 14px; color: var(--admin-text-muted); font-weight: 500; }
+    
+    /* Sections */
+    .admin-section { display: none; }
+    .admin-section.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    
+    /* Charts Grid */
+    .charts-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px;
+    }
+    .chart-card {
+      background: var(--admin-card); border-radius: 20px; padding: 24px;
+      border: 1px solid var(--admin-border);
+    }
+    .chart-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 20px; }
+    
+    /* Tables */
+    .table-container {
+      background: var(--admin-card); border-radius: 20px;
+      border: 1px solid var(--admin-border); overflow: hidden;
+    }
+    .table-toolbar {
+      padding: 20px 24px; border-bottom: 1px solid var(--admin-border);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .admin-search {
+      padding: 10px 16px 10px 40px; border-radius: 12px; border: 1px solid var(--admin-border);
+      width: 300px; font-size: 14px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%2394a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>') no-repeat 14px center;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    th { text-align: left; padding: 16px 24px; font-size: 12px; font-weight: 700; color: var(--admin-text-muted); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--admin-border); background: #f8fafc; }
+    td { padding: 16px 24px; font-size: 14px; color: var(--admin-text); border-bottom: 1px solid var(--admin-border); }
+    tr:last-child td { border-bottom: none; }
+    .td-user { display: flex; align-items: center; gap: 12px; }
+    .td-avatar { width: 36px; height: 36px; border-radius: 50%; background: #e2e8f0; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #64748b; }
+    
+    /* Buttons */
+    .btn-export {
+      padding: 10px 16px; border-radius: 10px; background: #fff; border: 1px solid var(--admin-border);
+      color: var(--admin-text); font-size: 13px; font-weight: 600; cursor: pointer;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .btn-export:hover { background: #f8fafc; }
+    .action-btn { background: none; border: none; cursor: pointer; color: #94a3b8; transition: color 0.2s; }
+    .action-btn:hover { color: var(--admin-accent); }
+    .action-btn.danger:hover { color: #ef4444; }
+
+    #unauthorized {
+      display: none; position: fixed; inset: 0; background: #fff; z-index: 9999;
+      flex-direction: column; align-items: center; justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Unauthorized Screen -->
+  <div id="unauthorized">
+    <span class="material-symbols-outlined" style="font-size: 64px; color: #ef4444; margin-bottom: 24px;">gpp_bad</span>
+    <h1 style="font-size: 32px; font-weight: 800; color: #0f172a; margin-bottom: 12px;">Access Denied</h1>
+    <p style="color: #64748b; margin-bottom: 32px;">You do not have permission to view the Admin Dashboard.</p>
+    <button class="btn btn-primary" onclick="window.location.href='dashboard.html'">Return to App</button>
+  </div>
+
+  <div class="admin-layout" id="admin-layout" style="display: none;">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="admin-brand">
+        <span class="material-symbols-outlined" style="color:var(--admin-accent);">admin_panel_settings</span> Traveloop Admin
+      </div>
+      <nav class="admin-nav">
+        <div class="admin-nav-item active" data-target="dash"><span class="material-symbols-outlined">dashboard</span> Dashboard</div>
+        <div class="admin-nav-item" data-target="users"><span class="material-symbols-outlined">group</span> Users</div>
+        <div class="admin-nav-item" data-target="trips"><span class="material-symbols-outlined">flight_takeoff</span> Trips</div>
+        <div class="admin-nav-item" data-target="analytics"><span class="material-symbols-outlined">bar_chart</span> Analytics</div>
+        <div style="flex:1;"></div>
+        <div class="admin-nav-item" id="admin-logout"><span class="material-symbols-outlined">logout</span> Logout</div>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <main class="admin-main">
+      <div class="admin-header">
+        <h1 id="page-title">Dashboard Overview</h1>
+        <div class="admin-profile">
+          <div class="td-avatar" id="admin-avatar">A</div>
+          <div style="font-size:14px; font-weight:600;" id="admin-name">Admin</div>
+        </div>
+      </div>
+
+      <!-- Section: Dashboard -->
+      <div class="admin-section active" id="sec-dash">
+        <div class="kpi-grid">
+          <div class="kpi-card"><div class="kpi-icon" style="background:#eff6ff;color:#3b82f6;"><span class="material-symbols-outlined">group</span></div><div><div class="kpi-val" id="kpi-users">0</div><div class="kpi-lbl">Total Users</div></div></div>
+          <div class="kpi-card"><div class="kpi-icon" style="background:#f0fdf4;color:#10b981;"><span class="material-symbols-outlined">flight</span></div><div><div class="kpi-val" id="kpi-trips">0</div><div class="kpi-lbl">Total Trips</div></div></div>
+          <div class="kpi-card"><div class="kpi-icon" style="background:#fef3c7;color:#f59e0b;"><span class="material-symbols-outlined">event</span></div><div><div class="kpi-val" id="kpi-upcoming-trips">0</div><div class="kpi-lbl">Upcoming Trips</div></div></div>
+          <div class="kpi-card"><div class="kpi-icon" style="background:#fdf2f8;color:#ec4899;"><span class="material-symbols-outlined">public</span></div><div><div class="kpi-val" id="kpi-shared">0</div><div class="kpi-lbl">Shared Trips</div></div></div>
+          <div class="kpi-card"><div class="kpi-icon" style="background:#e0e7ff;color:#4f46e5;"><span class="material-symbols-outlined">payments</span></div><div><div class="kpi-val" id="kpi-budget">₹0</div><div class="kpi-lbl">Total Budget</div></div></div>
+          <div class="kpi-card"><div class="kpi-icon" style="background:#ecfccb;color:#65a30d;"><span class="material-symbols-outlined">language</span></div><div><div class="kpi-val" id="kpi-countries">0</div><div class="kpi-lbl">Countries Planned</div></div></div>
+          <div class="kpi-card"><div class="kpi-icon" style="background:#ccfbf1;color:#0d9488;"><span class="material-symbols-outlined">how_to_reg</span></div><div><div class="kpi-val" id="kpi-active-users">0</div><div class="kpi-lbl">Active Users (Month)</div></div></div>
+          <div class="kpi-card"><div class="kpi-icon" style="background:#fce7f3;color:#db2777;"><span class="material-symbols-outlined">calculate</span></div><div><div class="kpi-val" id="kpi-avg-budget">₹0</div><div class="kpi-lbl">Avg Trip Budget</div></div></div>
+        </div>
+
+        <div class="charts-grid">
+          <div class="chart-card">
+            <h3>User Growth (By Month)</h3>
+            <canvas id="userGrowthChart" height="200"></canvas>
+          </div>
+          <div class="chart-card">
+            <h3>Trips Created (By Month)</h3>
+            <canvas id="tripsChart" height="200"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Users -->
+      <div class="admin-section" id="sec-users">
+        <div class="table-container">
+          <div class="table-toolbar">
+            <input type="text" class="admin-search" id="search-users" placeholder="Search users by name or email...">
+            <button class="btn-export" id="export-users"><span class="material-symbols-outlined">download</span> Export CSV</button>
+          </div>
+          <table id="users-table">
+            <thead><tr><th>User</th><th>Email</th><th>Trips</th><th>Countries</th><th>Joined</th><th>Actions</th></tr></thead>
+            <tbody><!-- Injected by JS --></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Section: Trips -->
+      <div class="admin-section" id="sec-trips">
+        <div class="table-container">
+          <div class="table-toolbar">
+            <input type="text" class="admin-search" id="search-trips" placeholder="Search trips by destination...">
+            <button class="btn-export" id="export-trips"><span class="material-symbols-outlined">download</span> Export CSV</button>
+          </div>
+          <table id="trips-table">
+            <thead><tr><th>Trip Title</th><th>Destination</th><th>User</th><th>Days</th><th>Budget</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody><!-- Injected by JS --></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Section: Shared Trips -->
+      <div class="admin-section" id="sec-shared">
+        <div class="table-container">
+          <div class="table-toolbar">
+            <input type="text" class="admin-search" id="search-shared" placeholder="Search shared trips...">
+          </div>
+          <table id="shared-table">
+            <thead><tr><th>Cover</th><th>Trip Title</th><th>Creator</th><th>Rating</th><th>Copies</th><th>Actions</th></tr></thead>
+            <tbody><!-- Injected by JS --></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Section: Analytics -->
+      <div class="admin-section" id="sec-analytics">
+        <div class="charts-grid" style="grid-template-columns: 1fr 1fr;">
+          <div class="chart-card">
+            <h3>Top Destinations</h3>
+            <canvas id="destChart" height="200"></canvas>
+          </div>
+          <div class="chart-card">
+            <h3>Average Trip Budgets (Top Dests)</h3>
+            <canvas id="budgetChart" height="200"></canvas>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- User Details Modal -->
+  <div id="user-modal" style="display:none; position:fixed; inset:0; background:rgba(15,23,42,0.8); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:#fff; width:100%; max-width:800px; border-radius:24px; max-height:90vh; overflow-y:auto; padding:32px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px;">
+        <h2 style="font-size:24px; font-weight:800;" id="modal-user-name">User Details</h2>
+        <button onclick="document.getElementById('user-modal').style.display='none'" style="background:none; border:none; cursor:pointer; color:#64748b;"><span class="material-symbols-outlined">close</span></button>
+      </div>
+      <div id="modal-user-content">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="src/js/pages/admin.js"></script>
+</body>
+</html>

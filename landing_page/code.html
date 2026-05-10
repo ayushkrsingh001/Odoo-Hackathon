@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - Premium Planner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e7e7f3",
+                        "surface-dim": "#d9d9e5",
+                        "surface-bright": "#faf8ff",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "tertiary-fixed": "#ffdbcd",
+                        "tertiary": "#943700",
+                        "inverse-primary": "#b4c5ff",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2e3039",
+                        "surface-tint": "#0053db",
+                        "on-surface-variant": "#434655",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "surface": "#faf8ff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-primary-fixed": "#00174b",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#2563eb",
+                        "on-surface": "#191b23",
+                        "outline": "#737686",
+                        "secondary": "#006b5f",
+                        "on-tertiary-container": "#ffede6",
+                        "secondary-container": "#6df5e1",
+                        "surface-container-low": "#f3f3fe",
+                        "on-secondary-fixed": "#00201c",
+                        "on-secondary-fixed-variant": "#005048",
+                        "on-secondary-container": "#006f64",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#360f00",
+                        "outline-variant": "#c3c6d7",
+                        "inverse-on-surface": "#f0f0fb",
+                        "on-primary-container": "#eeefff",
+                        "on-background": "#191b23",
+                        "surface-variant": "#e1e2ed",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "secondary-fixed": "#71f8e4",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#ededf9",
+                        "tertiary-container": "#bc4800",
+                        "background": "#faf8ff",
+                        "surface-container-highest": "#e1e2ed",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#004ac6",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#ffb596"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "unit": "4px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "stack-gap": "16px",
+                        "margin-mobile": "16px",
+                        "padding-card": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1", "fontWeight": "600"}],
+                        "headline-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "headline-xl": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .premium-shadow {
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        .premium-overlay-shadow {
+            box-shadow: 0px 10px 32px rgba(0, 0, 0, 0.10);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- TopNavBar (Linear/Transactional version for Landing Page) -->
+<nav class="fixed top-0 right-0 w-full z-50 flex justify-between items-center px-margin-mobile lg:px-margin-desktop py-4 bg-surface/80 backdrop-blur-md shadow-sm">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-bold text-primary">Traveloop</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md cursor-pointer active:opacity-70" href="#">Features</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md cursor-pointer active:opacity-70" href="#">Pricing</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md cursor-pointer active:opacity-70" href="#">Log in</a>
+<button class="bg-primary-container text-on-primary px-[24px] py-3 rounded-[12px] font-label-md text-label-md hover:bg-primary transition-colors">Start Free</button>
+</div>
+<div class="md:hidden flex items-center">
+<span class="material-symbols-outlined text-primary cursor-pointer active:opacity-70" data-icon="menu">menu</span>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-margin-mobile lg:px-margin-desktop flex items-center justify-center min-h-[819px] overflow-hidden">
+<!-- Background Image -->
+<div class="absolute inset-0 z-0">
+<img alt="Travel background" class="w-full h-full object-cover opacity-20" data-alt="A breathtaking, expansive view of a serene mountain lake reflecting the clear sky above. The scene is shot with high-end architectural photography techniques, emphasizing clean lines and a modern, airy feel. The lighting is bright and natural, casting soft shadows that enhance the minimalist, high-end aesthetic. The color palette features cool blues and pristine whites, perfectly aligning with a premium travel SaaS identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtJYP-XWwXycBtwPyOVCFkO_8vaNO-bonZzFDAgcqs9cU8MZq95VAu3-O8Sxh2CccswswCQhRpL7GisVrMMYabn7OrvlxNY1_YKPget-pMFhpBTrAfkoAFU2MGRHgmbWF_xzkcGbHxsJR4xptw4XVwow5RBKI1L2zJATsDXNIPTcRTTcJq9QrafO_IwXr7SmtnVb2iHxG_MY8TZKpgruXR0adIeV0O1UG65_VM9b7cmUU0DnRlAXFQwQxYmc3bwSOC_E2h1MP2eGg"/>
+<div class="absolute inset-0 bg-gradient-to-b from-surface/80 to-surface"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto text-center flex flex-col items-center">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-6 max-w-4xl">Plan Smarter. <span class="text-primary">Travel Better.</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl">
+                Experience the next generation of travel planning. Craft personalized, multi-city itineraries, track budgets in real-time, and collaborate seamlessly with friends—all in one premium workspace.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
+<button class="bg-primary-container text-on-primary px-[24px] py-4 rounded-[12px] font-label-md text-label-md hover:bg-primary transition-colors flex items-center justify-center gap-2">
+                    Start Planning Free
+                    <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="bg-[#F3F4F6] text-[#111827] px-[24px] py-4 rounded-[12px] font-label-md text-label-md hover:bg-[#E5E7EB] transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_circle">play_circle</span>
+                    View Demo
+                </button>
+</div>
+</div>
+</section>
+<!-- Features Section (Bento Grid) -->
+<section class="py-20 px-margin-mobile lg:px-margin-desktop bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-4">Everything you need for the perfect trip</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Powerful tools hidden behind a simple, intuitive interface.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Feature 1: Itinerary -->
+<div class="md:col-span-2 bg-surface-container-low rounded-[24px] p-padding-card premium-shadow flex flex-col md:flex-row gap-6 items-center">
+<div class="flex-1 space-y-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed" data-icon="map">map</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Multi-City Itineraries</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Visually plan complex routes. Drag and drop days, connect flights, and see your entire journey unfold on interactive maps.
+                        </p>
+</div>
+<div class="flex-1 w-full bg-surface rounded-[16px] h-48 premium-shadow overflow-hidden relative">
+<img alt="Map visualization" class="w-full h-full object-cover" data-alt="A clean, abstract representation of a digital map interface on a modern tablet screen. The design features soft, glowing route lines connecting elegant white destination markers over a minimalist, light-mode topography map. The scene is brightly lit with a soft, diffused studio light, emphasizing a premium SaaS application feel. Colors are restricted to subtle greys, whites, and striking primary blue accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxpYtxdleZMPCqrLtx4q5zZHomJidpd9Xgm31vg1Hwo99BK8UuI7oHBB7LAcs__ZIRRTwtROEEUFB93TgJ4wrLpxFG54rMtyyfrsdV8RmKmnw2EHc6165Iu2_07o0sJ14_wuOlKnJYK8GFw-LmmsWdzWalqMyCt9Hou72ZYq2ZFeXS41oRSVquuJvDkuzs_LWIkAOsF_41uqF9_LVX5d34_iq7N1c4frjP4sje9Efusz8K7SepWMUkifcE789_G9QzkRO3yz0DXPU"/>
+</div>
+</div>
+<!-- Feature 2: Budget -->
+<div class="bg-surface-container-low rounded-[24px] p-padding-card premium-shadow flex flex-col space-y-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="payments">payments</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Smart Budget Tracking</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Keep expenses in check automatically. Split costs with friends and monitor spending across different currencies.
+                    </p>
+<div class="mt-auto pt-4 flex items-center gap-2">
+<div class="flex-1 h-2 bg-surface rounded-full overflow-hidden">
+<div class="h-full bg-primary w-2/3"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">65%</span>
+</div>
+</div>
+<!-- Feature 3: Shared Trips -->
+<div class="bg-surface-container-low rounded-[24px] p-padding-card premium-shadow flex flex-col space-y-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant" data-icon="group">group</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Collaborative Planning</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Invite fellow travelers to edit, vote on activities, and add notes in real-time.
+                    </p>
+<div class="flex -space-x-2 mt-auto pt-4">
+<div class="w-8 h-8 rounded-full bg-surface-dim border-2 border-surface-container-low flex items-center justify-center text-xs">JD</div>
+<div class="w-8 h-8 rounded-full bg-primary-fixed border-2 border-surface-container-low flex items-center justify-center text-xs">AM</div>
+<div class="w-8 h-8 rounded-full bg-secondary-container border-2 border-surface-container-low flex items-center justify-center text-xs">+3</div>
+</div>
+</div>
+<!-- Feature 4: Documents -->
+<div class="md:col-span-2 bg-surface-container-low rounded-[24px] p-padding-card premium-shadow flex flex-col md:flex-row-reverse gap-6 items-center">
+<div class="flex-1 space-y-4">
+<div class="w-12 h-12 rounded-full bg-surface-dim flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface" data-icon="inventory_2">inventory_2</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Centralized Documents</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Store boarding passes, booking confirmations, and packing lists in one easily accessible hub, available offline.
+                        </p>
+</div>
+<div class="flex-1 w-full bg-surface rounded-[16px] h-48 premium-shadow flex items-center justify-center p-4">
+<div class="w-full max-w-[200px] space-y-3">
+<div class="h-10 bg-surface-container-highest rounded-lg flex items-center px-3 gap-3">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="flight">flight</span>
+<div class="h-2 w-16 bg-surface-dim rounded"></div>
+</div>
+<div class="h-10 bg-surface-container-highest rounded-lg flex items-center px-3 gap-3">
+<span class="material-symbols-outlined text-[20px] text-secondary" data-icon="hotel">hotel</span>
+<div class="h-2 w-24 bg-surface-dim rounded"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-inverse-surface text-inverse-on-surface py-12 px-margin-mobile lg:px-margin-desktop mt-20">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="col-span-1 md:col-span-2">
+<span class="font-headline-lg text-headline-lg font-bold text-inverse-primary mb-4 block">Traveloop</span>
+<p class="font-body-sm text-body-sm text-surface-variant max-w-sm mb-6">
+                    The premium workspace for high-intent travelers. Plan, collaborate, and explore with clarity.
+                </p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md mb-4 text-on-secondary">Product</h4>
+<ul class="space-y-2 font-body-sm text-body-sm text-surface-variant">
+<li><a class="hover:text-inverse-primary transition-colors" href="#">Features</a></li>
+<li><a class="hover:text-inverse-primary transition-colors" href="#">Pricing</a></li>
+<li><a class="hover:text-inverse-primary transition-colors" href="#">Templates</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md mb-4 text-on-secondary">Company</h4>
+<ul class="space-y-2 font-body-sm text-body-sm text-surface-variant">
+<li><a class="hover:text-inverse-primary transition-colors" href="#">About</a></li>
+<li><a class="hover:text-inverse-primary transition-colors" href="#">Contact</a></li>
+<li><a class="hover:text-inverse-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-container-max mx-auto mt-12 pt-8 border-t border-outline/20 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-sm text-body-sm text-outline-variant">© 2024 Traveloop. All rights reserved.</p>
+<div class="flex gap-4">
+<a class="text-outline-variant hover:text-inverse-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="public">public</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>

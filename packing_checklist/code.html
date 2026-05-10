@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Packing Checklist - Traveloop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e7e7f3",
+                        "surface-dim": "#d9d9e5",
+                        "surface-bright": "#faf8ff",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "tertiary-fixed": "#ffdbcd",
+                        "tertiary": "#943700",
+                        "inverse-primary": "#b4c5ff",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2e3039",
+                        "surface-tint": "#0053db",
+                        "on-surface-variant": "#434655",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "surface": "#faf8ff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-primary-fixed": "#00174b",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#2563eb",
+                        "on-surface": "#191b23",
+                        "outline": "#737686",
+                        "secondary": "#006b5f",
+                        "on-tertiary-container": "#ffede6",
+                        "secondary-container": "#6df5e1",
+                        "surface-container-low": "#f3f3fe",
+                        "on-secondary-fixed": "#00201c",
+                        "on-secondary-fixed-variant": "#005048",
+                        "on-secondary-container": "#006f64",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#360f00",
+                        "outline-variant": "#c3c6d7",
+                        "inverse-on-surface": "#f0f0fb",
+                        "on-primary-container": "#eeefff",
+                        "on-background": "#191b23",
+                        "surface-variant": "#e1e2ed",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "secondary-fixed": "#71f8e4",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#ededf9",
+                        "tertiary-container": "#bc4800",
+                        "background": "#faf8ff",
+                        "surface-container-highest": "#e1e2ed",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#004ac6",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#ffb596"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "unit": "4px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "stack-gap": "16px",
+                        "margin-mobile": "16px",
+                        "padding-card": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1", "fontWeight": "600"}],
+                        "headline-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "headline-xl": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex antialiased">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full z-40 bg-surface-container-low w-64 hidden lg:flex flex-col border-r border-surface-variant/50">
+<div class="p-6 pb-2">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 bg-primary-container rounded-xl flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">luggage</span>
+</div>
+<div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary">Traveloop</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Premium Planner</p>
+</div>
+</div>
+<button class="w-full bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary py-3 px-4 rounded-xl font-label-md text-label-md flex items-center justify-center gap-2 transition-colors duration-200 shadow-sm active:scale-95 mb-6">
+<span class="material-symbols-outlined">add</span>
+                New Trip
+            </button>
+</div>
+<div class="flex-1 overflow-y-auto px-4 py-2 space-y-1">
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-md text-label-md">My Trips</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-label-md text-label-md">Create Trip</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">timeline</span>
+<span class="font-label-md text-label-md">Itinerary Builder</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-label-md">Budget</span>
+</a>
+<!-- Active: Packing List -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary font-bold border-r-4 border-primary bg-surface-container-high transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-label-md text-label-md">Packing List</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">notes</span>
+<span class="font-label-md text-label-md">Notes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Shared Trips</span>
+</a>
+</div>
+<div class="p-4 mt-auto space-y-1 border-t border-surface-variant/50">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-64 flex flex-col min-h-screen bg-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-full lg:w-[calc(100%-16rem)] z-30 flex justify-between items-center px-margin-mobile lg:px-margin-desktop py-4 bg-surface/80 backdrop-blur-md shadow-sm">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-md text-headline-md font-bold text-primary lg:hidden">Traveloop</h2>
+<!-- Search -->
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container rounded-full border-none focus:ring-2 focus:ring-primary text-body-sm w-64 transition-all focus:w-80 outline-none placeholder:text-outline" placeholder="Search..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-70 rounded-full hover:bg-surface-container-highest">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border-2 border-surface cursor-pointer">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a smiling woman with dark hair, wearing a neutral-colored top. The background is softly blurred, focusing entirely on her warm expression. The lighting is bright and natural, typical of a modern profile picture used in productivity or social applications." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTFx-hQmZyOqKBxhy_sCZV8w1aJ2ugL5ODjhSWedo0vLK1YPd2G2EqOL_5L2piMuvk8K39-wGbCZ3BeMNgCW9jcfg1i6ZwKdS4GJt0c3sJ-_3oIqJ3Iupduzs7nFbAuv5rMygjM_G_Jsxcq6KkY8CRA00PCqYtB5PLwoIfD6ZdOXMK58IQ3zF0Y42MkfDM1XACU1-6n0gGE0J28-ISStu-4qHxTAdRJg2yl4PLThBfRyAE0tKH-MlkPk4b21wmjepTA5WcV3-Xs1c"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="pt-24 px-margin-mobile lg:px-margin-desktop pb-32 lg:pb-12 max-w-container-max mx-auto w-full flex-1">
+<!-- Header Section -->
+<div class="mb-10">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-8">
+<div>
+<div class="flex items-center gap-2 text-on-surface-variant mb-2 font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">map</span>
+<span>Tokyo Adventure 2024</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary">Packing List</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface">Packing Checklist</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-2">14 days in Japan • Autumn Weather</p>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 bg-surface-container text-on-surface hover:bg-surface-container-high rounded-xl font-label-md text-label-md transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">share</span>
+                            Share
+                        </button>
+<button class="px-4 py-2 bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary rounded-xl font-label-md text-label-md transition-colors flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+                            Templates
+                        </button>
+</div>
+</div>
+<!-- Global Progress -->
+<div class="bg-surface-container-lowest p-6 rounded-[24px] shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-surface-container-highest">
+<div class="flex justify-between items-end mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Overall Progress</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">24 of 48 items packed</p>
+</div>
+<span class="font-headline-lg text-headline-lg text-primary">50%</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-500 ease-out" style="width: 50%;"></div>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout for Categories -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Essentials Category -->
+<div class="bg-surface-container-lowest rounded-[24px] shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-surface-container-highest p-6 flex flex-col h-full">
+<div class="flex items-center justify-between mb-6 pb-4 border-b border-surface-container-highest">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/10 flex items-center justify-center text-tertiary-container">
+<span class="material-symbols-outlined">badge</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Essentials</h2>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container px-3 py-1 rounded-full text-on-surface-variant">6/6 Packed</span>
+</div>
+<div class="space-y-3 flex-1">
+<!-- Checked Item -->
+<label class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline text-primary focus:ring-primary focus:ring-offset-0 bg-surface-container transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-outline line-through flex-1 group-hover:text-outline-variant transition-colors">Passport &amp; Visas</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline text-primary focus:ring-primary focus:ring-offset-0 bg-surface-container transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-outline line-through flex-1 group-hover:text-outline-variant transition-colors">Flight Tickets</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline text-primary focus:ring-primary focus:ring-offset-0 bg-surface-container transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-outline line-through flex-1 group-hover:text-outline-variant transition-colors">Travel Insurance Info</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline text-primary focus:ring-primary focus:ring-offset-0 bg-surface-container transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-outline line-through flex-1 group-hover:text-outline-variant transition-colors">Credit Cards &amp; Cash (Yen)</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline text-primary focus:ring-primary focus:ring-offset-0 bg-surface-container transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-outline line-through flex-1 group-hover:text-outline-variant transition-colors">JR Pass Vouchers</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline text-primary focus:ring-primary focus:ring-offset-0 bg-surface-container transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-outline line-through flex-1 group-hover:text-outline-variant transition-colors">Hotel Reservations</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</label>
+</div>
+<div class="mt-4 pt-4 border-t border-surface-container-highest">
+<div class="flex items-center bg-surface-container-low rounded-xl px-3 py-2 border border-transparent focus-within:border-primary/30 transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">add</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md text-on-surface placeholder:text-outline-variant w-full outline-none" placeholder="Add essential item..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Electronics Category -->
+<div class="bg-surface-container-lowest rounded-[24px] shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-surface-container-highest p-6 flex flex-col h-full">
+<div class="flex items-center justify-between mb-6 pb-4 border-b border-surface-container-highest">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">devices</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Electronics</h2>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container px-3 py-1 rounded-full text-on-surface-variant">2/8 Packed</span>
+</div>
+<div class="space-y-3 flex-1">
+<!-- Unchecked Item -->
+<label class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary focus:ring-offset-0 bg-surface-container transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface flex-1">Universal Power Adapter</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline text-primary focus:ring-primary focus:ring-offset-0 bg-surface-container transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-outline line-through flex-1 group-hover:text-outline-variant transition-colors">Portable Power Bank</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary focus:ring-offset-0 bg-surface-container transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface flex-1">Mirrorless Camera &amp; Lenses</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline text-primary focus:ring-primary focus:ring-offset-0 bg-surface-container transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-outline line-through flex-1 group-hover:text-outline-variant transition-colors">Extra SD Cards</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary focus:ring-offset-0 bg-surface-container transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface flex-1">Noise-Cancelling Headphones</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary focus:ring-offset-0 bg-surface-container transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface flex-1">E-Reader / Kindle</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</label>
+</div>
+<div class="mt-4 pt-4 border-t border-surface-container-highest">
+<div class="flex items-center bg-surface-container-low rounded-xl px-3 py-2 border border-transparent focus-within:border-primary/30 transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">add</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md text-on-surface placeholder:text-outline-variant w-full outline-none" placeholder="Add electronic item..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Clothing Category -->
+<div class="bg-surface-container-lowest rounded-[24px] shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-surface-container-highest p-6 flex flex-col h-full md:col-span-2">
+<div class="flex items-center justify-between mb-6 pb-4 border-b border-surface-container-highest">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed-dim/30 flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined">checkroom</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Clothing &amp; Accessories</h2>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container px-3 py-1 rounded-full text-on-surface-variant">10/24 Packed</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 flex-1">
+<!-- Checked Item -->
+<label class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline text-primary focus:ring-primary focus:ring-offset-0 bg-surface-container transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-outline line-through flex-1 group-hover:text-outline-variant transition-colors">T-Shirts (x7)</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary focus:ring-offset-0 bg-surface-container transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface flex-1">Long Sleeve Shirts (x3)</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline text-primary focus:ring-primary focus:ring-offset-0 bg-surface-container transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-outline line-through flex-1 group-hover:text-outline-variant transition-colors">Jeans / Trousers (x3)</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary focus:ring-offset-0 bg-surface-container transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface flex-1">Light Jacket / Windbreaker</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary focus:ring-offset-0 bg-surface-container transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface flex-1">Comfortable Walking Shoes</span>
+<div class="px-2 py-0.5 bg-error-container text-on-error-container text-[10px] rounded uppercase font-bold tracking-wide mr-2">High Priority</div>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary focus:ring-offset-0 bg-surface-container transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface flex-1">Underwear &amp; Socks (x10)</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary focus:ring-offset-0 bg-surface-container transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface flex-1">Sleepwear</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary focus:ring-offset-0 bg-surface-container transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface flex-1">Swimwear (for Onsen)</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</label>
+</div>
+<div class="mt-4 pt-4 border-t border-surface-container-highest">
+<div class="flex items-center bg-surface-container-low rounded-xl px-3 py-2 border border-transparent focus-within:border-primary/30 transition-colors max-w-md">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">add</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md text-on-surface placeholder:text-outline-variant w-full outline-none" placeholder="Add clothing item..." type="text"/>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 flex justify-center">
+<button class="px-6 py-3 bg-transparent border-2 border-dashed border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary rounded-xl font-label-md text-label-md transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">add_box</span>
+                    Create New Category
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface dark:bg-inverse-surface shadow-[0_-4px_20px_rgba(0,0,0,0.05)] docked full-width bottom-0 lg:hidden rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 active:bg-surface-variant transition-transform duration-200 active:scale-90 rounded-xl" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 active:bg-surface-variant transition-transform duration-200 active:scale-90 rounded-xl" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-sm text-label-sm mt-1">Trips</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 active:bg-surface-variant transition-transform duration-200 active:scale-90 rounded-xl" href="#">
+<span class="material-symbols-outlined">add_box</span>
+<span class="font-label-sm text-label-sm mt-1">Create</span>
+</a>
+<!-- Active Nav Item conceptually matching 'Inventory/Checklist' within Bottom Nav context, mapping to nearest intent -> Trips contextually, but highlighting Create as a placeholder for a utility tab. Following logic, user is ON a trip page. Let's map to Trips as active, but JSON labels are Home, Trips, Create, Budget, Settings. User is actively editing a list for a Trip. -->
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-xl p-2 active:bg-surface-variant transition-transform duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="font-label-sm text-label-sm mt-1">Trips</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 active:bg-surface-variant transition-transform duration-200 active:scale-90 rounded-xl" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm text-label-sm mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

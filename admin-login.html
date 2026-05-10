@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login — Traveloop</title>
+  <link rel="stylesheet" href="src/styles/main.css">
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    .admin-login-card {
+      background: #1e293b;
+      padding: 48px;
+      border-radius: 24px;
+      width: 100%;
+      max-width: 440px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    .admin-icon {
+      width: 64px;
+      height: 64px;
+      background: rgba(59, 130, 246, 0.1);
+      color: #3b82f6;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    p {
+      color: #94a3b8;
+      font-size: 15px;
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+    
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    .input-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #94a3b8;
+      margin-bottom: 8px;
+    }
+    .input-group input {
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(15, 23, 42, 0.5);
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+      transition: border 0.2s;
+    }
+    .input-group input:focus {
+      border-color: #3b82f6;
+    }
+
+    .admin-login-btn {
+      width: 100%;
+      padding: 16px;
+      border-radius: 12px;
+      border: none;
+      background: #3b82f6;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 12px;
+    }
+    .admin-login-btn:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+    }
+    .error-msg {
+      color: #ef4444;
+      background: rgba(239, 68, 68, 0.1);
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      margin-top: 24px;
+      display: none;
+    }
+    .success-msg {
+      color: #10b981;
+      background: rgba(16, 185, 129, 0.1);
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      margin-top: 24px;
+      display: none;
+    }
+    .return-link {
+      display: inline-block;
+      margin-top: 32px;
+      color: #64748b;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .return-link:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="admin-login-card">
+    <div class="admin-icon" style="background:none;">
+      <img src="assets/logo/traveloop-icon.svg" alt="Traveloop" style="height:48px;width:48px;object-fit:contain;filter:brightness(0) invert(1) sepia(1) hue-rotate(190deg) saturate(3);">
+    </div>
+    <h1>Admin Portal</h1>
+    <p>Sign in with your authorized admin credentials.</p>
+
+    <div id="admin-login-form">
+      <div class="input-group">
+        <label>Admin ID (Email)</label>
+        <input type="email" id="admin-email" value="admin@traveloop.com" required>
+      </div>
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" id="admin-pass" value="admin123456" required>
+      </div>
+      
+      <button type="button" class="admin-login-btn" id="admin-login-btn">
+        <span class="material-symbols-outlined">login</span> Secure Login
+      </button>
+    </div>
+
+    <div class="error-msg" id="admin-error"></div>
+    <div class="success-msg" id="admin-success"></div>
+
+    <div id="cors-warning" style="display:none; color:#ef4444; background:rgba(239, 68, 68, 0.1); padding:16px; border-radius:8px; margin-top:24px; font-size:14px;">
+      <strong>⚠️ Warning: File Protocol Detected</strong><br>
+      You are running this file directly from a folder. Browsers block secure login scripts in this mode. You MUST use a local web server (like VS Code Live Server) for the login to function.
+    </div>
+
+    <a href="login.html" class="return-link">← Return to normal login</a>
+  </div>
+
+  <script>
+    // Detect if running via file:// protocol and show warning
+    if (window.location.protocol === 'file:') {
+      document.getElementById('cors-warning').style.display = 'block';
+    }
+  </script>
+  <script type="module" src="src/js/pages/adminLogin.js"></script>
+</body>
+</html>

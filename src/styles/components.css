@@ -1,0 +1,316 @@
+/* ============================================
+   TRAVELOOP REUSABLE COMPONENTS
+   Buttons, Cards, Inputs, Chips, Nav items
+   ============================================ */
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  font-size: var(--fs-label-md);
+  font-weight: var(--fw-semibold);
+  transition: all var(--transition-default);
+  cursor: pointer;
+  border: none;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+  color: white;
+  box-shadow: var(--shadow-premium);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 12px 28px -8px rgba(var(--color-primary-rgb), 0.4);
+}
+
+.btn-secondary {
+  background-color: var(--color-surface-container);
+  color: var(--color-on-surface);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-surface-container-high);
+}
+
+.btn-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  color: var(--color-on-surface);
+  box-shadow: var(--glass-shadow);
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* ── Cards & Panels ── */
+.card {
+  background-color: white;
+  border-radius: var(--radius-lg);
+  padding: var(--gutter);
+  box-shadow: var(--shadow-premium);
+  border: 1px solid var(--color-outline-variant);
+  transition: all var(--transition-default);
+}
+
+.card-interactive:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+}
+
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-lg);
+}
+
+/* ── Inputs ── */
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 14px 18px;
+  background-color: var(--color-surface-container-low);
+  border: 1.5px solid var(--color-outline-variant);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: var(--fs-body-md);
+  transition: all var(--transition-default);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(var(--color-primary-rgb), 0.1);
+}
+
+/* ── Trip Select Card ── */
+.trip-select-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-default);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.trip-select-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+  background-color: var(--color-surface-bright);
+}
+
+.trip-select-card.selected {
+  background-color: var(--color-primary-container);
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 24px rgba(var(--color-primary-rgb), 0.15);
+}
+
+.trip-select-card .card-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* ── Chips ── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-label-sm);
+  font-weight: var(--fw-label-sm);
+  line-height: var(--lh-label-sm);
+  letter-spacing: var(--ls-label-sm);
+  white-space: nowrap;
+}
+
+.chip-surface {
+  background-color: var(--color-surface-container-low);
+  color: var(--color-on-surface-variant);
+  border: 1px solid var(--color-surface-variant);
+}
+
+.chip-primary {
+  background-color: rgba(37, 99, 235, 0.1);
+  color: var(--color-primary);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.chip-secondary {
+  background-color: rgba(109, 245, 225, 0.2);
+  color: var(--color-on-secondary-container);
+  border: 1px solid rgba(109, 245, 225, 0.3);
+}
+
+.chip-tag {
+  background-color: var(--color-surface-variant);
+  color: var(--color-on-surface-variant);
+}
+
+/* ── Progress Bar ── */
+.progress-track {
+  width: 100%;
+  height: 6px;
+  background-color: var(--color-surface-container-highest);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width var(--transition-smooth);
+}
+
+.progress-fill-primary {
+  background-color: var(--color-primary);
+}
+
+.progress-fill-secondary {
+  background-color: var(--color-secondary);
+}
+
+.progress-fill-error {
+  background-color: var(--color-error);
+}
+
+/* ── Avatar Stack ── */
+.avatar-stack {
+  display: flex;
+}
+
+.avatar-stack > * {
+  margin-left: -8px;
+  border: 2px solid var(--color-surface-container-low);
+  border-radius: 50%;
+}
+
+.avatar-stack > *:first-child {
+  margin-left: 0;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.avatar-lg {
+  width: 40px;
+  height: 40px;
+}
+
+/* ── Tabs ── */
+.tab-group {
+  display: inline-flex;
+  padding: 6px;
+  background-color: var(--color-surface-container-low);
+  border-radius: var(--radius-md);
+  gap: 4px;
+}
+
+.tab-item {
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-label-md);
+  color: var(--color-on-surface-variant);
+  cursor: pointer;
+  transition: all var(--transition-default);
+}
+
+.tab-item.active {
+  background-color: white;
+  color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Badges ── */
+.badge {
+  display: inline-flex;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-label-sm);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-primary { background: rgba(var(--color-primary-rgb), 0.1); color: var(--color-primary); }
+.badge-secondary { background: rgba(var(--color-secondary-rgb), 0.1); color: var(--color-secondary); }
+.badge-tertiary { background: rgba(var(--color-tertiary-rgb), 0.1); color: var(--color-tertiary); }
+
+/* ── Tooltip ── */
+.tooltip {
+  position: absolute;
+  background-color: var(--color-inverse-surface);
+  color: var(--color-inverse-on-surface);
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-default);
+}
+
+.group:hover .tooltip {
+  opacity: 1;
+}
+
+/* ── Divider ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-outline-variant);
+}
+
+.divider-text {
+  font-size: var(--fs-label-sm);
+  font-weight: var(--fw-label-sm);
+  color: var(--color-outline);
+}

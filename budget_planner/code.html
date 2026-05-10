@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - Budget Planner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#e7e7f3",
+                      "surface-dim": "#d9d9e5",
+                      "surface-bright": "#faf8ff",
+                      "secondary-fixed-dim": "#4fdbc8",
+                      "tertiary-fixed": "#ffdbcd",
+                      "tertiary": "#943700",
+                      "inverse-primary": "#b4c5ff",
+                      "on-error-container": "#93000a",
+                      "inverse-surface": "#2e3039",
+                      "surface-tint": "#0053db",
+                      "on-surface-variant": "#434655",
+                      "on-tertiary-fixed-variant": "#7d2d00",
+                      "on-secondary": "#ffffff",
+                      "primary-fixed": "#dbe1ff",
+                      "surface": "#faf8ff",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "on-primary-fixed": "#00174b",
+                      "on-tertiary": "#ffffff",
+                      "primary-container": "#2563eb",
+                      "on-surface": "#191b23",
+                      "outline": "#737686",
+                      "secondary": "#006b5f",
+                      "on-tertiary-container": "#ffede6",
+                      "secondary-container": "#6df5e1",
+                      "surface-container-low": "#f3f3fe",
+                      "on-secondary-fixed": "#00201c",
+                      "on-secondary-fixed-variant": "#005048",
+                      "on-secondary-container": "#006f64",
+                      "on-error": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed": "#360f00",
+                      "outline-variant": "#c3c6d7",
+                      "inverse-on-surface": "#f0f0fb",
+                      "on-primary-container": "#eeefff",
+                      "on-background": "#191b23",
+                      "surface-variant": "#e1e2ed",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "secondary-fixed": "#71f8e4",
+                      "on-primary": "#ffffff",
+                      "surface-container": "#ededf9",
+                      "tertiary-container": "#bc4800",
+                      "background": "#faf8ff",
+                      "surface-container-highest": "#e1e2ed",
+                      "surface-container-lowest": "#ffffff",
+                      "primary": "#004ac6",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed-dim": "#ffb596"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "40px",
+                      "unit": "4px",
+                      "container-max": "1280px",
+                      "gutter": "24px",
+                      "stack-gap": "16px",
+                      "margin-mobile": "16px",
+                      "padding-card": "24px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "1", "fontWeight": "600"}],
+                      "headline-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "headline-xl": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}]
+              }
+            }
+          }
+        }
+      </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #faf8ff; }
+      </style>
+</head>
+<body class="text-on-surface antialiased flex flex-col md:flex-row min-h-screen">
+<!-- SideNavBar (Desktop) -->
+<nav class="fixed left-0 top-0 h-full w-64 hidden lg:flex flex-col bg-surface-container-low z-40">
+<div class="p-6 pb-2">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">flight_takeoff</span>
+                Traveloop
+            </h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Premium Planner</p>
+</div>
+<div class="px-4 py-4">
+<button class="w-full bg-primary-container text-on-primary-container rounded-xl py-3 px-4 font-label-md text-label-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add</span>
+                New Trip
+            </button>
+</div>
+<div class="flex-1 overflow-y-auto px-4 py-2 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">map</span>
+                My Trips
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+                Create Trip
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">timeline</span>
+                Itinerary Builder
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-primary font-bold border-r-4 border-primary bg-surface-container-high transition-all duration-200 ease-in-out active:scale-95 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+                Budget
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+                Packing List
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">notes</span>
+                Notes
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">group</span>
+                Shared Trips
+            </a>
+</div>
+<div class="p-4 border-t border-outline-variant/30 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">person</span>
+                Profile
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full lg:ml-64 bg-background min-h-screen">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-30 flex justify-between items-center px-margin-mobile lg:px-margin-desktop py-4 bg-surface/80 backdrop-blur-md shadow-sm w-full">
+<div class="flex items-center gap-4">
+<h1 class="font-headline-md text-headline-md font-bold text-primary lg:hidden">Traveloop</h1>
+<!-- Search Bar (on_left as per JSON) -->
+<div class="hidden md:flex items-center bg-surface-container-low rounded-lg px-3 py-2 w-64 border border-outline-variant focus-within:border-primary transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none outline-none text-body-sm font-body-sm text-on-surface w-full placeholder:text-on-surface-variant focus:ring-0 p-0" placeholder="Search trips or expenses..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-70">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden cursor-pointer active:opacity-70 border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A close up, professional headshot of a young woman with dark hair in a bright, modern light-mode setting. She is wearing casual business attire. The lighting is soft and flattering, contributing to a premium, clean aesthetic consistent with a high-end travel application. The background is a slightly blurred, light neutral tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQhO9RUusuN4URsf4OsB5Y5rslZAR_RcXgoFk8DBMWBly34TwIZlc4iLT-KLaFFfhYIuA0s9SHBqywz6QnaqF7CJeFLy9u6k70_GZf0_MQs5O5202vq5c5cpDlrwvq3T9DhuGrrqIsrR3pEM5EFituRFiX5E91kKj04h5esn13Vab219zpNbksMesRIQMicv4bhr-59fnq3sBgbauew3luU9XYRX_cJYmOgt5nDm-q-am3O50N99GeNAE7ngM5zF6v-Oh4UcBnhrc"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-margin-mobile lg:p-margin-desktop max-w-container-max mx-auto space-y-gutter">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-2">
+<div>
+<h2 class="font-headline-xl text-headline-xl font-bold text-on-surface">Japan 2024 Budget</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Oct 12 - Oct 26 • 14 Days</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container-high text-on-surface px-4 py-2 rounded-xl font-label-md text-label-md flex items-center gap-2 hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">download</span>
+                        Export
+                    </button>
+<button class="bg-primary-container text-on-primary-container px-4 py-2 rounded-xl font-label-md text-label-md flex items-center gap-2 hover:opacity-90 transition-colors shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
+<span class="material-symbols-outlined">add</span>
+                        Add Expense
+                    </button>
+</div>
+</div>
+<!-- KPI Cards Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Total Budget -->
+<div class="bg-surface-container-lowest p-padding-card rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/20 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<span class="bg-surface-container-high text-on-surface px-2 py-1 rounded-full font-label-sm text-label-sm">USD</span>
+</div>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Total Budget</p>
+<p class="font-headline-xl text-headline-xl font-bold text-on-surface">$5,000</p>
+</div>
+</div>
+<!-- Total Spent -->
+<div class="bg-surface-container-lowest p-padding-card rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/20 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-error/5 rounded-full -mr-16 -mt-16"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined">shopping_cart</span>
+</div>
+</div>
+<div class="relative z-10">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Total Spent</p>
+<p class="font-headline-xl text-headline-xl font-bold text-on-surface">$3,240</p>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-3 overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 65%;"></div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-2 text-right">65% used</p>
+</div>
+</div>
+<!-- Remaining -->
+<div class="bg-primary-container text-on-primary-container p-padding-card rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-on-primary/20 flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">savings</span>
+</div>
+</div>
+<div>
+<p class="font-body-sm text-body-sm text-on-primary-container/80 mb-1">Remaining</p>
+<p class="font-headline-xl text-headline-xl font-bold text-on-primary-container">$1,760</p>
+<p class="font-label-sm text-label-sm text-on-primary-container/80 mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> On track
+                        </p>
+</div>
+</div>
+<!-- Cost per Day -->
+<div class="bg-surface-container-lowest p-padding-card rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/20 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+</div>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Avg. Cost / Day</p>
+<p class="font-headline-xl text-headline-xl font-bold text-on-surface">$231</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-2 flex items-center gap-1">
+                            Calculated over 14 days
+                        </p>
+</div>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Category Breakdown (Pie Chart Simulation) -->
+<div class="lg:col-span-1 bg-surface-container-lowest p-padding-card rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/20 flex flex-col">
+<h3 class="font-headline-md text-headline-md font-semibold text-on-surface mb-6">By Category</h3>
+<div class="flex-1 flex flex-col justify-center items-center relative">
+<!-- Simulated Pie Chart (CSS Conic Gradient) -->
+<div class="w-48 h-48 rounded-full shadow-inner relative flex items-center justify-center" style="background: conic-gradient(#2563eb 0% 45%, #006b5f 45% 70%, #943700 70% 90%, #737686 90% 100%);">
+<!-- Donut hole -->
+<div class="w-32 h-32 bg-surface-container-lowest rounded-full flex flex-col items-center justify-center shadow-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Total</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">$3,240</span>
+</div>
+</div>
+</div>
+<!-- Legend -->
+<div class="mt-8 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary-container"></div>
+<span class="font-body-sm text-body-sm text-on-surface">Flights</span>
+</div>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">45%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+<span class="font-body-sm text-body-sm text-on-surface">Hotels</span>
+</div>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">25%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-tertiary"></div>
+<span class="font-body-sm text-body-sm text-on-surface">Food</span>
+</div>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">20%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-outline"></div>
+<span class="font-body-sm text-body-sm text-on-surface">Activities</span>
+</div>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">10%</span>
+</div>
+</div>
+</div>
+<!-- Daily Spending (Bar Chart Simulation) -->
+<div class="lg:col-span-2 bg-surface-container-lowest p-padding-card rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/20 flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md font-semibold text-on-surface">Daily Spending</h3>
+<select class="bg-surface-container-high border-none rounded-lg font-body-sm text-body-sm text-on-surface focus:ring-0 cursor-pointer">
+<option>This Week</option>
+<option>Entire Trip</option>
+</select>
+</div>
+<div class="flex-1 flex items-end gap-2 sm:gap-4 mt-4 h-64 relative border-b border-outline-variant/30 pb-2">
+<!-- Y-Axis labels (simulated) -->
+<div class="absolute left-0 top-0 h-full flex flex-col justify-between text-[10px] text-on-surface-variant pb-2 pr-2 border-r border-outline-variant/30">
+<span>$500</span>
+<span>$250</span>
+<span>$0</span>
+</div>
+<!-- Bars -->
+<div class="flex-1 flex items-end justify-around h-full pl-8">
+<div class="w-full max-w-[40px] flex flex-col items-center gap-2 group">
+<div class="w-full bg-primary-fixed-dim hover:bg-primary-container transition-colors rounded-t-md h-[40%] relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$180</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mon</span>
+</div>
+<div class="w-full max-w-[40px] flex flex-col items-center gap-2 group">
+<div class="w-full bg-primary-container rounded-t-md h-[85%] relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$420</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tue</span>
+</div>
+<div class="w-full max-w-[40px] flex flex-col items-center gap-2 group">
+<div class="w-full bg-primary-fixed-dim hover:bg-primary-container transition-colors rounded-t-md h-[30%] relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$120</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Wed</span>
+</div>
+<div class="w-full max-w-[40px] flex flex-col items-center gap-2 group">
+<div class="w-full bg-primary-fixed-dim hover:bg-primary-container transition-colors rounded-t-md h-[60%] relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$310</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Thu</span>
+</div>
+<div class="w-full max-w-[40px] flex flex-col items-center gap-2 group">
+<div class="w-full bg-primary-fixed-dim hover:bg-primary-container transition-colors rounded-t-md h-[25%] relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$95</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Fri</span>
+</div>
+<div class="w-full max-w-[40px] flex flex-col items-center gap-2 group">
+<div class="w-full bg-primary-fixed-dim hover:bg-primary-container transition-colors rounded-t-md h-[50%] relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$240</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sat</span>
+</div>
+<div class="w-full max-w-[40px] flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-variant rounded-t-md h-[10%] border border-dashed border-outline-variant relative">
+</div>
+<span class="font-label-sm text-label-sm text-outline-variant">Sun</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Expenses List -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/20 overflow-hidden">
+<div class="p-6 border-b border-outline-variant/20 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+<h3 class="font-headline-md text-headline-md font-semibold text-on-surface">Recent Expenses</h3>
+<div class="flex gap-2 w-full sm:w-auto">
+<div class="relative w-full sm:w-auto">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">filter_list</span>
+<select class="bg-surface-container-high border-none rounded-lg font-body-sm text-body-sm text-on-surface focus:ring-0 pl-10 py-2 w-full sm:w-auto cursor-pointer appearance-none pr-8">
+<option>All Categories</option>
+<option>Flights</option>
+<option>Hotels</option>
+</select>
+</div>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant">
+<th class="p-4 font-medium rounded-tl-lg">Description</th>
+<th class="p-4 font-medium">Category</th>
+<th class="p-4 font-medium">Date</th>
+<th class="p-4 font-medium">Status</th>
+<th class="p-4 font-medium text-right rounded-tr-lg">Amount</th>
+<th class="p-4 w-12"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined">flight</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">ANA Airlines - Roundtrip</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">SFO to NRT</p>
+</div>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1 bg-surface-container-high px-2 py-1 rounded-full font-label-sm text-label-sm text-on-surface">
+                                        Flights
+                                    </span>
+</td>
+<td class="p-4 font-body-sm text-body-sm text-on-surface-variant">Oct 12, 2024</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1 text-secondary font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Paid
+                                    </span>
+</td>
+<td class="p-4 font-label-md text-label-md text-on-surface text-right">$1,250.00</td>
+<td class="p-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">hotel</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Park Hyatt Tokyo</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">4 Nights</p>
+</div>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1 bg-surface-container-high px-2 py-1 rounded-full font-label-sm text-label-sm text-on-surface">
+                                        Hotels
+                                    </span>
+</td>
+<td class="p-4 font-body-sm text-body-sm text-on-surface-variant">Oct 12, 2024</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1 text-secondary font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Paid
+                                    </span>
+</td>
+<td class="p-4 font-label-md text-label-md text-on-surface text-right">$1,800.00</td>
+<td class="p-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Sushi Dai</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Toyosu Market</p>
+</div>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1 bg-surface-container-high px-2 py-1 rounded-full font-label-sm text-label-sm text-on-surface">
+                                        Food
+                                    </span>
+</td>
+<td class="p-4 font-body-sm text-body-sm text-on-surface-variant">Oct 14, 2024</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1 text-outline font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-outline"></span> Pending
+                                    </span>
+</td>
+<td class="p-4 font-label-md text-label-md text-on-surface text-right">$85.00</td>
+<td class="p-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-outline-variant/20 flex justify-center">
+<button class="text-primary font-label-md text-label-md hover:underline bg-transparent">View All Expenses</button>
+</div>
+</div>
+<!-- Bottom spacing for mobile nav -->
+<div class="h-20 lg:h-0"></div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface shadow-[0_-4px_20px_rgba(0,0,0,0.05)] docked full-width bottom-0 lg:hidden rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:bg-surface-variant transition-transform duration-200 active:scale-90 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+            Home
+        </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:bg-surface-variant transition-transform duration-200 active:scale-90 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined mb-1">map</span>
+            Trips
+        </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:bg-surface-variant transition-transform duration-200 active:scale-90 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined mb-1">add_box</span>
+            Create
+        </a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl p-2 active:bg-surface-variant transition-transform duration-200 active:scale-90 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">payments</span>
+            Budget
+        </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:bg-surface-variant transition-transform duration-200 active:scale-90 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined mb-1">settings</span>
+            Settings
+        </a>
+</nav>
+</body></html>

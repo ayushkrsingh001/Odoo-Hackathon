@@ -1,0 +1,538 @@
+/* ============================================
+   TRAVELOOP PAGE-SPECIFIC STYLES
+   Styles unique to individual pages
+   ============================================ */
+
+/* ── Landing Page ── */
+.hero-section {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 128px;
+  padding-bottom: 80px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(250, 248, 255, 0.8), var(--color-surface));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-content h1 {
+  max-width: 900px;
+  margin-bottom: 24px;
+}
+
+.hero-content p {
+  max-width: 640px;
+  margin-bottom: 40px;
+  color: var(--color-on-surface-variant);
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 400px;
+}
+
+@media (min-width: 640px) {
+  .hero-actions {
+    flex-direction: row;
+    max-width: none;
+    width: auto;
+  }
+}
+
+/* ── Feature Bento Cards ── */
+.feature-card {
+  background-color: var(--color-surface-container-low);
+  border-radius: var(--radius-card);
+  padding: var(--padding-card);
+  box-shadow: var(--shadow-card);
+}
+
+.feature-card-img {
+  width: 100%;
+  height: 192px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  background-color: var(--color-surface);
+}
+
+.feature-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+/* ── Footer ── */
+.site-footer {
+  background-color: var(--color-inverse-surface);
+  color: var(--color-inverse-on-surface);
+  padding: 48px var(--margin-mobile);
+  margin-top: 80px;
+}
+
+@media (min-width: 1024px) {
+  .site-footer {
+    padding: 48px var(--margin-desktop);
+  }
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+.footer-brand {
+  font-size: var(--fs-headline-lg);
+  font-weight: 700;
+  color: var(--color-inverse-primary);
+  margin-bottom: 16px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-links a {
+  font-size: var(--fs-body-sm);
+  color: var(--color-surface-variant);
+  transition: color var(--transition-default);
+}
+
+.footer-links a:hover {
+  color: var(--color-inverse-primary);
+}
+
+.footer-bottom {
+  max-width: var(--container-max);
+  margin: 48px auto 0;
+  padding-top: 32px;
+  border-top: 1px solid rgba(115, 118, 134, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* ── Auth Page ── */
+.auth-image-content {
+  position: relative;
+  z-index: 10;
+  padding: var(--margin-desktop);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  color: white;
+}
+
+.auth-image-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.auth-image-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(46, 48, 57, 0.8), rgba(46, 48, 57, 0.2), transparent);
+}
+
+.auth-form-container {
+  width: 100%;
+  max-width: 448px;
+}
+
+.auth-social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.auth-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-button);
+  background-color: var(--color-surface);
+  font-size: var(--fs-label-md);
+  font-weight: var(--fw-label-md);
+  transition: background-color var(--transition-default);
+}
+
+.auth-social-btn:hover {
+  background-color: var(--color-surface-container-low);
+}
+
+/* ── Trip Cards ── */
+.trip-card {
+  background-color: var(--color-surface-container-lowest);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-slow);
+  border: 1px solid rgba(193, 198, 215, 0.3);
+}
+
+.trip-card:hover {
+  transform: translateY(-4px);
+}
+
+.trip-card-image {
+  position: relative;
+  height: 192px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.trip-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trip-card-duration {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: rgba(250, 248, 255, 0.9);
+  backdrop-filter: blur(4px);
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-label-sm);
+  font-weight: var(--fw-label-sm);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: var(--shadow-sm);
+}
+
+.trip-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* ── New Trip CTA Card ── */
+.trip-cta-card {
+  background-color: rgba(0, 74, 198, 0.05);
+  border-radius: var(--radius-md);
+  border: 2px dashed rgba(0, 74, 198, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  text-align: center;
+  min-height: 360px;
+  transition: background-color var(--transition-default);
+  cursor: pointer;
+}
+
+.trip-cta-card:hover {
+  background-color: rgba(0, 74, 198, 0.1);
+}
+
+/* ── Budget Page ── */
+.budget-kpi-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .budget-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .budget-kpi-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.budget-chart-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gutter);
+}
+
+@media (min-width: 1024px) {
+  .budget-chart-grid {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+.donut-chart {
+  width: 192px;
+  height: 192px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.donut-center {
+  width: 128px;
+  height: 128px;
+  background-color: var(--color-surface-container-lowest);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 256px;
+  position: relative;
+  border-bottom: 1px solid rgba(193, 198, 215, 0.3);
+  padding-bottom: 8px;
+}
+
+.bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 40px;
+  max-width: 40px;
+}
+
+.bar {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  background-color: var(--color-primary-fixed-dim);
+  transition: all var(--transition-default);
+  position: relative;
+}
+
+.bar:hover {
+  background-color: var(--color-primary-container);
+}
+
+/* ── Expense Table ── */
+.expense-table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.expense-table thead {
+  background-color: var(--color-surface-container-low);
+}
+
+.expense-table th {
+  padding: 16px;
+  font-size: var(--fs-label-sm);
+  font-weight: 500;
+  color: var(--color-on-surface-variant);
+}
+
+.expense-table td {
+  padding: 16px;
+}
+
+.expense-table tbody tr {
+  transition: background-color var(--transition-default);
+  border-bottom: 1px solid rgba(193, 198, 215, 0.2);
+}
+
+.expense-table tbody tr:hover {
+  background-color: var(--color-surface-bright);
+}
+
+/* ── Packing Checklist ── */
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-default);
+  cursor: pointer;
+}
+
+.checklist-item:hover {
+  background-color: var(--color-surface-container-low);
+}
+
+.checklist-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 2px solid var(--color-outline);
+  cursor: pointer;
+  accent-color: var(--color-primary);
+}
+
+.checklist-item.checked span {
+  text-decoration: line-through;
+  color: var(--color-outline);
+}
+
+.checklist-delete {
+  opacity: 0;
+  color: var(--color-on-surface-variant);
+  transition: all var(--transition-default);
+}
+
+.checklist-item:hover .checklist-delete {
+  opacity: 1;
+}
+
+.checklist-delete:hover {
+  color: var(--color-error);
+}
+
+/* ── Itinerary Timeline ── */
+.timeline {
+  position: relative;
+  padding-left: 24px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background-color: var(--color-surface-variant);
+}
+
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  position: absolute;
+  left: -24px;
+  top: 0;
+  box-shadow: 0 0 0 4px var(--color-surface-container-lowest);
+}
+
+/* ── Shared Trip Hero ── */
+.shared-hero {
+  position: relative;
+  width: 100%;
+  height: 512px;
+}
+
+@media (min-width: 1024px) {
+  .shared-hero {
+    height: 614px;
+  }
+}
+
+.shared-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.shared-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3), transparent);
+}
+
+.shared-hero-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 80px var(--margin-mobile) 40px;
+}
+
+@media (min-width: 1024px) {
+  .shared-hero-content {
+    padding: 80px var(--margin-desktop) 40px;
+  }
+}
+
+/* ── Sticky sidebar panel ── */
+.sticky-panel {
+  position: static;
+}
+
+@media (min-width: 1024px) {
+  .sticky-panel {
+    position: sticky;
+    top: 100px;
+  }
+}

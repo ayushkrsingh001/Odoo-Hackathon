@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create Trip - Traveloop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e7e7f3",
+                        "surface-dim": "#d9d9e5",
+                        "surface-bright": "#faf8ff",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "tertiary-fixed": "#ffdbcd",
+                        "tertiary": "#943700",
+                        "inverse-primary": "#b4c5ff",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2e3039",
+                        "surface-tint": "#0053db",
+                        "on-surface-variant": "#434655",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "surface": "#faf8ff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-primary-fixed": "#00174b",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#2563eb",
+                        "on-surface": "#191b23",
+                        "outline": "#737686",
+                        "secondary": "#006b5f",
+                        "on-tertiary-container": "#ffede6",
+                        "secondary-container": "#6df5e1",
+                        "surface-container-low": "#f3f3fe",
+                        "on-secondary-fixed": "#00201c",
+                        "on-secondary-fixed-variant": "#005048",
+                        "on-secondary-container": "#006f64",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#360f00",
+                        "outline-variant": "#c3c6d7",
+                        "inverse-on-surface": "#f0f0fb",
+                        "on-primary-container": "#eeefff",
+                        "on-background": "#191b23",
+                        "surface-variant": "#e1e2ed",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "secondary-fixed": "#71f8e4",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#ededf9",
+                        "tertiary-container": "#bc4800",
+                        "background": "#faf8ff",
+                        "surface-container-highest": "#e1e2ed",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#004ac6",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#ffb596"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "unit": "4px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "stack-gap": "16px",
+                        "margin-mobile": "16px",
+                        "padding-card": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1", "fontWeight": "600" }],
+                        "headline-md": ["20px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "headline-xl": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-full lg:w-[calc(100%-16rem)] z-30 flex justify-between items-center px-margin-mobile lg:px-margin-desktop py-4 bg-surface/80 backdrop-blur-md shadow-sm text-primary font-label-md text-label-md">
+<div class="flex items-center gap-4">
+<!-- Mobile Menu Icon (Placeholder) -->
+<button class="lg:hidden text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-70">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="font-headline-md text-headline-md font-bold text-primary lg:hidden">Traveloop</div>
+<div class="hidden lg:flex items-center bg-surface-container-low rounded-full px-4 py-2 border border-outline-variant focus-within:border-primary transition-colors">
+<span class="material-symbols-outlined text-outline mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none outline-none font-body-md text-body-md text-on-surface placeholder:text-outline w-64" placeholder="Search trips, places..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-70 p-2 rounded-full hover:bg-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-outline-variant object-cover cursor-pointer hover:opacity-80 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHQfBx0bKzzqkACGmEaLTdb3H7dfI-p5m_A7iAa9veyA242XY0tDP6QBCiE41p2Ve7D2mVaVZpNtNWCZFudJ35y6UpB8zydlZG_qpCGR-HCua_9oTuq6LEzZ56yXOxMZcri6DXqD9IQXXkQGOY4LNGVEzI7FjNb8po8CEr4npP4kYy5JXDL-Vuyppb26Zn4Sia52SjpSig-atKQH8Yq4hRrgHYIPSVXPlQTg2HtUY4dPaGQWYxXAvEfSlj3sJBLmk_MepMVLF9F3Q"/>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full w-64 z-40 hidden lg:flex flex-col bg-surface-container-low text-primary font-body-md text-body-md border-r border-outline-variant/30">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-xl shadow-sm">T</div>
+<div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary">Traveloop</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Premium Planner</p>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container font-label-md text-label-md py-3 px-4 rounded-xl shadow-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2 mb-8 cursor-pointer active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="add" style="font-variation-settings: 'FILL' 1;">add</span>
+                New Trip
+            </button>
+</div>
+<div class="flex-1 overflow-y-auto px-4 flex flex-col gap-1">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 ease-in-out active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<!-- My Trips -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 ease-in-out active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+                My Trips
+            </a>
+<!-- Create Trip (Active) -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-primary font-bold border-l-4 border-primary bg-surface-container-high transition-colors duration-200 ease-in-out active:scale-95 shadow-sm" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+                Create Trip
+            </a>
+<!-- Itinerary Builder -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 ease-in-out active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="timeline">timeline</span>
+                Itinerary Builder
+            </a>
+<!-- Budget -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 ease-in-out active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+                Budget
+            </a>
+<!-- Packing List -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 ease-in-out active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                Packing List
+            </a>
+<!-- Notes -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 ease-in-out active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="notes">notes</span>
+                Notes
+            </a>
+<!-- Shared Trips -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 ease-in-out active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                Shared Trips
+            </a>
+</div>
+<div class="p-4 mt-auto border-t border-outline-variant/30 flex flex-col gap-1">
+<!-- Profile -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 ease-in-out active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+                Profile
+            </a>
+<!-- Settings -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 ease-in-out active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</div>
+</nav>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 lg:hidden rounded-t-xl bg-surface shadow-[0_-4px_20px_rgba(0,0,0,0.05)] font-label-sm text-label-sm pb-safe">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant rounded-xl transition-transform duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+            Home
+        </a>
+<!-- Trips -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant rounded-xl transition-transform duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="map">map</span>
+            Trips
+        </a>
+<!-- Create (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl p-2 transition-transform duration-200 active:scale-90 -mt-4 shadow-lg border-4 border-surface" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="add_box" style="font-variation-settings: 'FILL' 1;">add_box</span>
+            Create
+        </a>
+<!-- Budget -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant rounded-xl transition-transform duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="payments">payments</span>
+            Budget
+        </a>
+<!-- Settings -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant rounded-xl transition-transform duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="settings">settings</span>
+            Settings
+        </a>
+</nav>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-24 pb-24 lg:pb-12 px-margin-mobile lg:px-margin-desktop max-w-container-max mx-auto min-h-screen flex flex-col justify-center">
+<div class="max-w-2xl mx-auto w-full">
+<div class="text-center mb-10">
+<h2 class="font-headline-xl text-headline-xl text-on-background mb-2">Plan a New Journey</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Set the foundation for your next great adventure.</p>
+</div>
+<!-- Bento-style Form Card -->
+<div class="bg-surface-container-lowest rounded-[24px] p-6 lg:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/20">
+<form class="flex flex-col gap-8">
+<!-- Cover Image Upload Area -->
+<div class="relative group cursor-pointer">
+<div class="h-48 w-full rounded-2xl border-2 border-dashed border-outline-variant bg-surface-container-low flex flex-col items-center justify-center text-on-surface-variant transition-all duration-200 group-hover:border-primary group-hover:bg-surface-variant/30 overflow-hidden">
+<span class="material-symbols-outlined text-4xl mb-3 text-outline group-hover:text-primary transition-colors" data-icon="add_photo_alternate">add_photo_alternate</span>
+<span class="font-label-md text-label-md text-on-surface-variant group-hover:text-primary transition-colors">Upload a cover photo</span>
+<span class="font-body-sm text-body-sm text-outline mt-1">PNG, JPG up to 5MB</span>
+</div>
+</div>
+<!-- Core Details -->
+<div class="flex flex-col gap-5">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2 ml-1" for="trip-name">Trip Name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="flight_takeoff">flight_takeoff</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-xl py-3 pl-12 pr-4 font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors placeholder:text-outline" id="trip-name" placeholder="e.g., Summer in Kyoto" type="text"/>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2 ml-1" for="trip-desc">Description (Optional)</label>
+<textarea class="w-full bg-surface-container-low border border-outline-variant rounded-xl p-4 font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors placeholder:text-outline resize-none" id="trip-desc" placeholder="What's the vibe of this trip?" rows="3"></textarea>
+</div>
+</div>
+<!-- Dates -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2 ml-1" for="start-date">Start Date</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="calendar_today">calendar_today</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-xl py-3 pl-12 pr-4 font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-outline" id="start-date" type="date"/>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2 ml-1" for="end-date">End Date</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="event">event</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-xl py-3 pl-12 pr-4 font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-outline" id="end-date" type="date"/>
+</div>
+</div>
+</div>
+<!-- Travel Companions -->
+<div class="bg-surface-container-low rounded-2xl p-5 border border-outline-variant/30 flex items-center justify-between">
+<div>
+<h3 class="font-label-md text-label-md text-on-surface mb-1">Travel Companions</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Who's joining the adventure?</p>
+</div>
+<div class="flex items-center">
+<div class="flex -space-x-3 rtl:space-x-reverse mr-4">
+<img alt="Travel Companion Portrait 1" class="w-10 h-10 border-2 border-surface-container-lowest rounded-full object-cover" data-alt="A close-up portrait of a smiling young woman with bright, warm lighting, representing a travel companion profile picture. The background is a soft, out-of-focus urban environment, fitting a modern travel app light-mode aesthetic. High quality, clear, and professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyzsD42Qyu4qn4IQ5SpKGr3UE9uryCMfU61WJmC84-ZZ3xu8bmV7f1fu-Z7ojKIXAjNC4hWWACm6rdjh3L43-Dm7DKj72MIAyL9Z7vxXeZoV4mLNMqC-j_9FsbC_mVT5Ex7QM-8TR3mfS7EO5cSBrcE9NewvRSDTjMPJQuIUYw3RrTEvT_YcfC8nv7Hpu5mNl35bobRD3r9UPCZ9f63VJvD1c0WhL79pU77FRSOoZD0NfIogdz6fmZ1V1RC7SO8mkvkFc8dISYmUA"/>
+<img alt="Travel Companion Portrait 2" class="w-10 h-10 border-2 border-surface-container-lowest rounded-full object-cover" data-alt="A portrait of a young man with a slight smile, outdoors with soft natural lighting. He is wearing casual travel attire. The image is cropped as a circular avatar, designed for a clean, minimalist UI interface in a premium travel planning application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEBCOujGg95lgVL2E43diW3wOballMMhwbWQYyHNdZMVPUoWuwl-K25UGlmRecWqwIXcxcr0MbuyOnnklPOeUPIh9ipX44-vT_A2Tq4FfFKFW1upXFNnepADupYQG8dhOiun9XfKVmVKJTLLOrfmHL2Ezd-VnBhPxz5GjKV6MPv_QQS9p0-v6qk0M4qMBxuXNgCavBm1kA0Q88wx4LKzECwvf8VXLMgpqEtM1c6mAHxa5Bl0jaqbNRsQ28TMu09xyO2QI_mjHOvGc"/>
+</div>
+<button class="w-10 h-10 rounded-full border border-dashed border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary hover:bg-surface-variant/50 transition-all cursor-pointer" type="button">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+</button>
+</div>
+</div>
+<!-- Actions -->
+<div class="pt-4 border-t border-outline-variant/20 flex gap-4">
+<button class="flex-1 bg-surface-container-highest text-on-surface-variant font-label-md text-label-md py-4 rounded-xl hover:bg-outline-variant/30 transition-colors" type="button">
+                            Cancel
+                        </button>
+<button class="flex-[2] bg-primary-container text-on-primary-container font-label-md text-label-md py-4 rounded-xl shadow-[0_4px_12px_rgba(37,99,235,0.2)] hover:opacity-90 hover:shadow-md transition-all active:scale-[0.98]" type="submit">
+                            Create Trip
+                        </button>
+</div>
+</form>
+</div>
+</div>
+</main>
+</body></html>

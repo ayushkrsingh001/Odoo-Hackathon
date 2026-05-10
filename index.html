@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traveloop — Premium Travel Planning Platform</title>
+  <meta name="description" content="Plan smarter, travel better. Craft personalized multi-city itineraries, track budgets in real-time, and collaborate with friends — all in one premium workspace.">
+  <meta name="theme-color" content="#004ac6">
+  <link rel="icon" type="image/svg+xml" href="assets/logo/traveloop-icon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles/landing.css">
+</head>
+<body>
+
+  <!-- ═══════════════ TRANSPARENT NAVBAR ═══════════════ -->
+  <nav class="lp-nav" id="lp-nav">
+    <div class="lp-nav-inner">
+      <a href="index.html" class="lp-nav-brand">
+        <img src="assets/logo/traveloop-icon.svg" alt="Traveloop" style="height:38px;width:38px;object-fit:contain;filter:brightness(0) invert(1);">
+        <span>Traveloop</span>
+      </a>
+      <div class="lp-nav-links" id="nav-links">
+        <a href="#features">Features</a>
+        <a href="#stats">Pricing</a>
+        <a href="login.html">Log In</a>
+        <a href="login.html" class="lp-nav-cta">Start Free</a>
+      </div>
+      <button class="lp-nav-hamburger" id="hamburger-btn" onclick="document.getElementById('nav-links').classList.toggle('mobile-open')">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════ HERO SECTION ═══════════════ -->
+  <section class="lp-hero" id="hero">
+    <div class="lp-hero-bg">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtJYP-XWwXycBtwPyOVCFkO_8vaNO-bonZzFDAgcqs9cU8MZq95VAu3-O8Sxh2CccswswCQhRpL7GisVrMMYabn7OrvlxNY1_YKPget-pMFhpBTrAfkoAFU2MGRHgmbWF_xzkcGbHxsJR4xptw4XVwow5RBKI1L2zJATsDXNIPTcRTTcJq9QrafO_IwXr7SmtnVb2iHxG_MY8TZKpgruXR0adIeV0O1UG65_VM9b7cmUU0DnRlAXFQwQxYmc3bwSOC_E2h1MP2eGg" alt="Travel background" loading="eager">
+      <div class="lp-hero-overlay"></div>
+    </div>
+    <div class="lp-hero-content">
+      <h1 class="lp-hero-title lp-anim-up">Plan Smarter.<br><span class="lp-gradient-text">Travel Better.</span></h1>
+      <p class="lp-hero-sub lp-anim-up lp-delay-1">Experience the next generation of travel planning. Craft personalized multi-city itineraries, track budgets in real-time, and collaborate seamlessly with friends—all in one premium workspace.</p>
+      <div class="lp-hero-actions lp-anim-up lp-delay-2">
+        <a href="login.html" class="lp-btn-primary">
+          Start Planning Free
+          <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+        </a>
+        <button class="lp-btn-secondary">
+          <span class="material-symbols-outlined" style="font-size:18px;">play_circle</span>
+          View Demo
+        </button>
+      </div>
+      <div class="lp-chips lp-anim-up lp-delay-3">
+        <a href="ai-generator.html" class="lp-chip">✨ Generate AI Trip</a>
+        <a href="shared-trips.html" class="lp-chip">🌍 Explore Destinations</a>
+        <a href="budget.html" class="lp-chip">💰 Track Budget</a>
+        <a href="smart-packing.html" class="lp-chip">🧳 Smart Packing</a>
+      </div>
+    </div>
+    <div class="lp-scroll-indicator lp-anim-up lp-delay-3">
+      <span>Scroll to Explore</span>
+      <span class="material-symbols-outlined lp-bounce">expand_more</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════ STATS SECTION ═══════════════ -->
+  <section class="lp-stats" id="stats">
+    <div class="lp-stats-grid">
+      <div class="lp-stat-item">
+        <span class="lp-stat-number glow-text">10K+</span>
+        <span class="lp-stat-label">Trips Planned</span>
+      </div>
+      <div class="lp-stat-item">
+        <span class="lp-stat-number glow-text">150+</span>
+        <span class="lp-stat-label">Countries</span>
+      </div>
+      <div class="lp-stat-item">
+        <span class="lp-stat-number glow-text">₹5 Cr+</span>
+        <span class="lp-stat-label">Budget Managed</span>
+      </div>
+      <div class="lp-stat-item">
+        <span class="lp-stat-number glow-text">98%</span>
+        <span class="lp-stat-label">User Satisfaction</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FEATURES SECTION ═══════════════ -->
+  <section class="lp-features" id="features">
+    <div class="lp-section-header">
+      <h2>Everything You Need for the Perfect Trip</h2>
+      <p>Powerful tools hidden behind a simple, intuitive interface.</p>
+    </div>
+    <div class="lp-features-grid">
+      <!-- Feature 1 -->
+      <div class="lp-feature-card premium-card">
+        <div class="lp-feature-icon" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">
+          <span class="material-symbols-outlined">auto_awesome</span>
+        </div>
+        <h3>AI Trip Generator</h3>
+        <p>Get personalized itinerary suggestions powered by AI. Just tell us your vibe and budget — we'll do the rest.</p>
+        <div class="card-glow"></div>
+      </div>
+      <!-- Feature 2 -->
+      <div class="lp-feature-card premium-card">
+        <div class="lp-feature-icon" style="background:linear-gradient(135deg,#14b8a6,#06b6d4);">
+          <span class="material-symbols-outlined">inventory_2</span>
+        </div>
+        <h3>Smart Packing Assistant</h3>
+        <p>Never forget essentials again. AI-powered packing lists tailored to your destination, weather, and trip type.</p>
+        <div class="card-glow"></div>
+      </div>
+      <!-- Feature 3 -->
+      <div class="lp-feature-card premium-card">
+        <div class="lp-feature-icon" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">
+          <span class="material-symbols-outlined">currency_exchange</span>
+        </div>
+        <h3>Currency Converter</h3>
+        <p>Real-time currency conversion for 150+ currencies. Know exactly what you're spending, anywhere in the world.</p>
+        <div class="card-glow"></div>
+      </div>
+      <!-- Feature 4 -->
+      <div class="lp-feature-card premium-card">
+        <div class="lp-feature-icon" style="background:linear-gradient(135deg,#2563eb,#3b82f6);">
+          <span class="material-symbols-outlined">group</span>
+        </div>
+        <h3>Shared Trips</h3>
+        <p>Collaborate with friends in real-time. Share itineraries, split budgets, and vote on activities together.</p>
+        <div class="card-glow"></div>
+      </div>
+      <!-- Feature 5 -->
+      <div class="lp-feature-card premium-card">
+        <div class="lp-feature-icon" style="background:linear-gradient(135deg,#ec4899,#f43f5e);">
+          <span class="material-symbols-outlined">account_balance_wallet</span>
+        </div>
+        <h3>Budget Analytics</h3>
+        <p>Track your expenses in real-time. Visualize where your money is going and stay within your travel budget.</p>
+        <div class="card-glow"></div>
+      </div>
+      <!-- Feature 6 -->
+      <div class="lp-feature-card premium-card">
+        <div class="lp-feature-icon" style="background:linear-gradient(135deg,#8b5cf6,#d946ef);">
+          <span class="material-symbols-outlined">public</span>
+        </div>
+        <h3>Public Itinerary Sharing</h3>
+        <p>Publish your amazing trips to the community. Inspire others and let them copy your perfectly crafted plans.</p>
+        <div class="card-glow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ HOW IT WORKS ═══════════════ -->
+  <section class="lp-how-it-works">
+    <div class="lp-section-header">
+      <h2>Plan Your Dream Trip in 3 Simple Steps</h2>
+      <p>From idea to reality in minutes, not days.</p>
+    </div>
+    <div class="lp-steps-container">
+      <div class="lp-step-item">
+        <div class="lp-step-number">1</div>
+        <div class="lp-step-content">
+          <h3>Enter destination & preferences</h3>
+          <p>Tell us where you want to go, who you're traveling with, and what your budget looks like.</p>
+        </div>
+      </div>
+      <div class="lp-step-line"></div>
+      <div class="lp-step-item">
+        <div class="lp-step-number">2</div>
+        <div class="lp-step-content">
+          <h3>Let AI generate your itinerary</h3>
+          <p>Our advanced AI instantly creates a day-by-day plan optimized for logistics and fun.</p>
+        </div>
+      </div>
+      <div class="lp-step-line"></div>
+      <div class="lp-step-item">
+        <div class="lp-step-number">3</div>
+        <div class="lp-step-content">
+          <h3>Save, share, and travel smarter</h3>
+          <p>Invite friends to collaborate, track your budget, and enjoy your seamless adventure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ AI PREVIEW ═══════════════ -->
+  <section class="lp-ai-preview">
+    <div class="lp-ai-preview-inner">
+      <div class="lp-ai-content">
+        <h2>Experience the magic of AI Planning</h2>
+        <p>Our AI analyzes millions of travel data points to craft the perfect itinerary for your specific travel style, budget, and dates.</p>
+        <div class="lp-ai-mockup">
+          <div class="mockup-header">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          </div>
+          <div class="mockup-body">
+            <div class="mockup-input">
+              <span class="material-symbols-outlined">search</span>
+              Planning a 5-day trip to Bali with a budget of ₹80,000...
+            </div>
+            <div class="mockup-loading">
+              <div class="shimmer-line" style="width:80%"></div>
+              <div class="shimmer-line" style="width:60%"></div>
+              <div class="shimmer-line" style="width:90%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FEATURED DESTINATIONS ═══════════════ -->
+  <section class="lp-destinations">
+    <div class="lp-section-header">
+      <h2>Explore Trending Destinations</h2>
+      <p>Discover where the world is traveling next.</p>
+    </div>
+    <div class="lp-dest-grid">
+      <div class="lp-dest-card">
+        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&fit=crop" alt="Bali">
+        <div class="lp-dest-overlay">
+          <h3>Bali, Indonesia</h3>
+          <p>From ₹45,000 • Best: Apr-Oct</p>
+        </div>
+      </div>
+      <div class="lp-dest-card">
+        <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?w=800&fit=crop" alt="Switzerland">
+        <div class="lp-dest-overlay">
+          <h3>Swiss Alps, Switzerland</h3>
+          <p>From ₹1,20,000 • Best: Jun-Aug</p>
+        </div>
+      </div>
+      <div class="lp-dest-card">
+        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&fit=crop" alt="Dubai">
+        <div class="lp-dest-overlay">
+          <h3>Dubai, UAE</h3>
+          <p>From ₹60,000 • Best: Nov-Mar</p>
+        </div>
+      </div>
+      <div class="lp-dest-card">
+        <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&fit=crop" alt="Goa">
+        <div class="lp-dest-overlay">
+          <h3>Goa, India</h3>
+          <p>From ₹25,000 • Best: Oct-Feb</p>
+        </div>
+      </div>
+      <div class="lp-dest-card">
+        <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&fit=crop" alt="Maldives">
+        <div class="lp-dest-overlay">
+          <h3>The Maldives</h3>
+          <p>From ₹90,000 • Best: Nov-Apr</p>
+        </div>
+      </div>
+      <div class="lp-dest-card">
+        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&fit=crop" alt="Japan">
+        <div class="lp-dest-overlay">
+          <h3>Kyoto, Japan</h3>
+          <p>From ₹1,00,000 • Best: Mar-May</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TESTIMONIALS ═══════════════ -->
+  <section class="lp-testimonials">
+    <div class="lp-section-header">
+      <h2>Loved by Travelers Worldwide</h2>
+      <p>Don't just take our word for it.</p>
+    </div>
+    <div class="lp-test-grid">
+      <div class="lp-test-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"Traveloop's AI generator completely saved my Europe trip. It built an itinerary that I never would have thought of, perfectly balanced between sightseeing and relaxation."</p>
+        <div class="lp-user">
+          <img src="https://i.pravatar.cc/150?img=32" alt="Sarah">
+          <div>
+            <h4>Sarah Jenkins</h4>
+            <span>New York, USA</span>
+          </div>
+        </div>
+      </div>
+      <div class="lp-test-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"The budget tracker and shared trips feature is a game-changer. My friends and I planned our entire Bali trip without a single spreadsheet. Highly recommended!"</p>
+        <div class="lp-user">
+          <img src="https://i.pravatar.cc/150?img=11" alt="Raj">
+          <div>
+            <h4>Raj Patel</h4>
+            <span>Mumbai, India</span>
+          </div>
+        </div>
+      </div>
+      <div class="lp-test-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"I love how beautifully everything is designed. It feels like a premium app. The smart packing assistant made sure I didn't forget my adapters for Japan!"</p>
+        <div class="lp-user">
+          <img src="https://i.pravatar.cc/150?img=47" alt="Emma">
+          <div>
+            <h4>Emma Watson</h4>
+            <span>London, UK</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="lp-footer">
+    <div class="lp-footer-grid">
+      <div class="footer-brand-col">
+        <div class="lp-footer-brand" style="display:flex;align-items:center;gap:10px;">
+          <img src="assets/logo/traveloop-icon.svg" alt="Traveloop" style="height:32px;width:32px;object-fit:contain;filter:brightness(0) invert(1);">
+          Traveloop
+        </div>
+        <p>Plan Smarter. Travel Better.</p>
+        <div class="social-links">
+          <a href="#"><span class="material-symbols-outlined">share</span></a>
+          <a href="#"><span class="material-symbols-outlined">public</span></a>
+          <a href="#"><span class="material-symbols-outlined">mail</span></a>
+        </div>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul><li><a href="#features">Features</a></li><li><a href="#">AI Generator</a></li><li><a href="shared-trips.html">Community Trips</a></li></ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Privacy Policy</a></li></ul>
+      </div>
+    </div>
+    <div class="lp-footer-bottom">
+      <p>© 2025 Traveloop. All rights reserved. Designed for travelers, by travelers.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('lp-nav');
+      if (window.scrollY > 80) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('lp-visible'); observer.unobserve(e.target); }});
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.lp-stat-item, .lp-feature-card, .lp-section-header, .lp-step-item, .lp-ai-mockup, .lp-dest-card, .lp-test-card').forEach(el => observer.observe(el));
+  </script>
+
+  <script type="module">
+    import { auth } from './src/js/firebase/config.js';
+    import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js';
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        document.querySelectorAll('a[href="login.html"]').forEach(link => {
+          link.href = 'dashboard.html';
+          if (link.classList.contains('lp-nav-cta')) link.textContent = 'Dashboard';
+          else if (link.textContent.includes('Start') || link.textContent.includes('Get Started')) link.textContent = 'Go to Dashboard';
+          else link.textContent = 'Dashboard';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile — Traveloop</title>
+  <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body class="page-with-sidebar">
+
+  <script src="src/scripts/navigation.js"></script>
+  <script>renderSidebar('profile'); renderTopNav('Profile'); renderBottomNav('settings');</script>
+
+  <main class="page-main">
+    <div class="reveal" style="max-width:800px;margin:0 auto;">
+      <h1 class="text-headline-xl" style="margin-bottom:32px;">User Profile</h1>
+      
+      <div class="card card-bordered" style="padding:32px;margin-bottom:24px;">
+        <div style="display:flex;align-items:center;gap:24px;margin-bottom:32px;">
+          <div class="profile-avatar-large" style="width:100px;height:100px;border-radius:50%;overflow:hidden;background:var(--color-surface-variant);position:relative;">
+            <img id="profile-img" src="" style="width:100%;height:100%;object-fit:cover;display:none;">
+            <div id="avatar-placeholder" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:700;">?</div>
+          </div>
+          <div>
+            <h2 id="user-display-name" class="text-headline-md">Loading...</h2>
+            <p id="user-email" class="text-body-sm" style="color:var(--color-on-surface-variant);">...</p>
+            <input type="file" id="avatar-input" style="display:none;" accept="image/*">
+            <button class="btn btn-ghost" onclick="document.getElementById('avatar-input').click()" style="margin-top:12px;">Change Photo</button>
+          </div>
+        </div>
+
+        <form id="profile-form">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+            <div class="form-group">
+              <label class="text-label-sm">Display Name</label>
+              <input type="text" id="display-name-input" class="input-field" placeholder="Full Name">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+      </div>
+
+      <div class="card card-bordered" style="padding:32px;border-color:var(--color-error-container);">
+        <h3 class="text-headline-md" style="color:var(--color-error);margin-bottom:16px;">Danger Zone</h3>
+        <p class="text-body-sm" style="margin-bottom:24px;">Deleting your account will remove all your trips and data permanently.</p>
+        <button class="btn btn-outline" style="color:var(--color-error);border-color:var(--color-error);">Delete Account</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="src/scripts/app.js"></script>
+  <script type="module" src="src/js/pages/profile.js"></script>
+</body>
+</html>

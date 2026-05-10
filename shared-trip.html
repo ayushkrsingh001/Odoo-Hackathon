@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>European Summer Trip — Shared on Traveloop</title>
+  <meta name="description" content="Explore this amazing European Summer itinerary shared on Traveloop. Paris, Rome, Barcelona over 12 days.">
+  <meta name="theme-color" content="#004ac6">
+  <link rel="icon" type="image/svg+xml" href="assets/logo/traveloop-icon.svg">
+  <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body>
+
+  <!-- ═══════════════ PUBLIC NAVBAR ═══════════════ -->
+  <nav class="landing-nav" id="shared-nav">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <span class="text-headline-md" style="font-weight:700;color:var(--color-primary)">Traveloop</span>
+    </div>
+    <div class="landing-nav-links">
+      <a href="index.html" class="landing-nav-link">Home</a>
+      <a href="login.html" class="btn btn-primary" style="padding:10px 20px;">Start Planning</a>
+    </div>
+    <button class="mobile-menu-btn" style="display:flex;align-items:center;" onclick="document.querySelector('.mobile-menu-overlay').classList.add('active');document.querySelector('.mobile-sidebar').classList.add('active');">
+      <span class="material-symbols-outlined" style="color:var(--color-primary)">menu</span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
+  <div class="mobile-sidebar">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;">
+      <span class="text-headline-md" style="font-weight:700;color:var(--color-primary)">Traveloop</span>
+      <button onclick="closeMobileMenu()" style="padding:8px;"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:8px;">
+      <a href="index.html" style="padding:12px 16px;border-radius:8px;font-weight:600;">Home</a>
+      <a href="login.html" class="btn btn-primary" style="margin-top:16px;text-align:center;">Start Planning</a>
+    </nav>
+  </div>
+
+  <!-- ═══════════════ HERO IMAGE ═══════════════ -->
+  <section class="shared-hero">
+    <img alt="European Summer Trip" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmhwynGRH-Idt7pmSa7IT7YAxSZsrK12ShcxFx9zIVlb54UdPNBCpeRqSSzI5x4WuoL0yB0syGwPfkLB37TMDp5tcBQIsEEYdi2GeF2OA9p8rEV2F00AZdP_1rSSXfSFAJC3eMeSQBiIRyBgiCRi5Ds9vopxczHAK3m33VEuHyQf5vR8_kwoKiG6kiiJeJAOtLichgpwPD9kpX5SGIiS0au6YrR1eCg5gY15w4LDXQFAlMOVjv3eG83PivU0oV8jR2XVD88CH9HxU" loading="eager">
+    <div class="shared-hero-overlay"></div>
+    <div class="shared-hero-content container-max">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <div class="avatar" style="background-color:var(--color-primary-container);color:var(--color-on-primary-container);width:48px;height:48px;font-size:18px;">AD</div>
+        <div>
+          <span style="color:rgba(255,255,255,0.9);font-size:14px;">Shared by</span>
+          <p style="color:white;font-weight:600;">Alex Durrell</p>
+        </div>
+      </div>
+      <h1 class="text-display-lg animate-fade-in-up" style="color:white;margin-bottom:16px;max-width:640px;">European Summer 2024</h1>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:24px;">
+        <span style="color:rgba(255,255,255,0.9);display:flex;align-items:center;gap:6px;font-size:14px;">
+          <span class="material-symbols-outlined" style="font-size:18px;">calendar_month</span>
+          Oct 12 — Oct 23, 2024
+        </span>
+        <span style="color:rgba(255,255,255,0.9);display:flex;align-items:center;gap:6px;font-size:14px;">
+          <span class="material-symbols-outlined" style="font-size:18px;">pin_drop</span>
+          Paris, Rome, Barcelona
+        </span>
+        <span style="color:rgba(255,255,255,0.9);display:flex;align-items:center;gap:6px;font-size:14px;">
+          <span class="material-symbols-outlined" style="font-size:18px;">group</span>
+          4 travelers
+        </span>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <button class="btn btn-primary" style="padding:12px 20px;">
+          <span class="material-symbols-outlined" style="font-size:18px;">content_copy</span>
+          Copy Itinerary
+        </button>
+        <button class="btn" style="background:rgba(255,255,255,0.15);backdrop-filter:blur(12px);color:white;padding:12px 20px;">
+          <span class="material-symbols-outlined" style="font-size:18px;">share</span>
+          Share
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TRIP CONTENT ═══════════════ -->
+  <div class="section-padding">
+    <div class="container-max">
+      <div class="shared-trip-grid">
+        <!-- Main Content Column -->
+        <div>
+          <!-- Trip Overview -->
+          <div class="card card-bordered reveal" style="margin-bottom:var(--gutter);">
+            <h2 class="text-headline-lg" style="font-weight:700;margin-bottom:12px;">Trip Overview</h2>
+            <p class="text-body-md" style="color:var(--color-on-surface-variant);margin-bottom:24px;">
+              An unforgettable journey through three of Europe's most iconic cities. From the romance of Paris to the ancient streets of Rome and the vibrant energy of Barcelona.
+            </p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <span class="chip chip-tag"><span class="material-symbols-outlined" style="font-size:14px;">museum</span> Culture</span>
+              <span class="chip chip-tag"><span class="material-symbols-outlined" style="font-size:14px;">restaurant</span> Food</span>
+              <span class="chip chip-tag"><span class="material-symbols-outlined" style="font-size:14px;">photo_camera</span> Photography</span>
+              <span class="chip chip-tag"><span class="material-symbols-outlined" style="font-size:14px;">directions_walk</span> Walking</span>
+            </div>
+          </div>
+
+          <!-- Itinerary Preview -->
+          <div class="card card-bordered reveal" style="margin-bottom:var(--gutter);">
+            <h2 class="text-headline-lg" style="font-weight:700;margin-bottom:24px;">Itinerary Highlights</h2>
+            <div class="timeline" style="display:flex;flex-direction:column;gap:32px;">
+              <!-- Day 1 -->
+              <div style="position:relative;">
+                <div class="timeline-dot" style="background:var(--color-primary);"></div>
+                <span class="text-label-sm" style="color:var(--color-primary);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Day 1-4 · Paris</span>
+                <h3 class="text-headline-md" style="margin-top:8px;font-weight:700;">The City of Light</h3>
+                <p class="text-body-sm" style="color:var(--color-on-surface-variant);margin-top:4px;">Eiffel Tower, Louvre Museum, Montmartre, Seine River cruise</p>
+              </div>
+              <!-- Day 5 -->
+              <div style="position:relative;">
+                <div class="timeline-dot" style="background:var(--color-secondary);"></div>
+                <span class="text-label-sm" style="color:var(--color-secondary);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Day 5-8 · Rome</span>
+                <h3 class="text-headline-md" style="margin-top:8px;font-weight:700;">Eternal City</h3>
+                <p class="text-body-sm" style="color:var(--color-on-surface-variant);margin-top:4px;">Colosseum, Vatican City, Trastevere, authentic Italian pasta</p>
+              </div>
+              <!-- Day 9 -->
+              <div style="position:relative;">
+                <div class="timeline-dot" style="background:var(--color-tertiary);"></div>
+                <span class="text-label-sm" style="color:var(--color-tertiary);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Day 9-12 · Barcelona</span>
+                <h3 class="text-headline-md" style="margin-top:8px;font-weight:700;">Mediterranean Magic</h3>
+                <p class="text-body-sm" style="color:var(--color-on-surface-variant);margin-top:4px;">Sagrada Familia, Park Güell, La Rambla, Barceloneta Beach</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Column -->
+        <div class="sticky-panel" style="display:flex;flex-direction:column;gap:var(--gutter);">
+          <!-- Trip Stats -->
+          <div class="card card-bordered">
+            <h3 class="text-headline-md" style="font-weight:700;margin-bottom:20px;">Trip at a Glance</h3>
+            <div style="display:flex;flex-direction:column;gap:20px;">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:40px;height:40px;border-radius:50%;background:var(--color-surface-container-high);display:flex;align-items:center;justify-content:center;">
+                  <span class="material-symbols-outlined" style="font-size:20px;color:var(--color-on-surface-variant);">schedule</span>
+                </div>
+                <div>
+                  <span class="text-label-sm" style="color:var(--color-outline);">Duration</span>
+                  <p class="text-label-md" style="font-weight:700;">12 Days</p>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:40px;height:40px;border-radius:50%;background:var(--color-surface-container-high);display:flex;align-items:center;justify-content:center;">
+                  <span class="material-symbols-outlined" style="font-size:20px;color:var(--color-on-surface-variant);">pin_drop</span>
+                </div>
+                <div>
+                  <span class="text-label-sm" style="color:var(--color-outline);">Destinations</span>
+                  <p class="text-label-md" style="font-weight:700;">3 Cities</p>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:40px;height:40px;border-radius:50%;background:var(--color-surface-container-high);display:flex;align-items:center;justify-content:center;">
+                  <span class="material-symbols-outlined" style="font-size:20px;color:var(--color-on-surface-variant);">payments</span>
+                </div>
+                <div>
+                  <span class="text-label-sm" style="color:var(--color-outline);">Est. Budget</span>
+                  <p class="text-label-md" style="font-weight:700;">$3,000</p>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:40px;height:40px;border-radius:50%;background:var(--color-surface-container-high);display:flex;align-items:center;justify-content:center;">
+                  <span class="material-symbols-outlined" style="font-size:20px;color:var(--color-on-surface-variant);">event</span>
+                </div>
+                <div>
+                  <span class="text-label-sm" style="color:var(--color-outline);">Activities</span>
+                  <p class="text-label-md" style="font-weight:700;">18 Planned</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Card -->
+          <div class="card" style="background:linear-gradient(135deg, var(--color-primary-container), var(--color-primary));color:var(--color-on-primary);text-align:center;">
+            <span class="material-symbols-outlined" style="font-size:36px;margin-bottom:12px;opacity:0.8;">explore</span>
+            <h3 class="text-headline-md" style="font-weight:700;margin-bottom:8px;">Plan your own trip</h3>
+            <p class="text-body-sm" style="opacity:0.9;margin-bottom:20px;">Create a free Traveloop account and start building your perfect itinerary.</p>
+            <a href="login.html" class="btn" style="background:white;color:var(--color-primary);width:100%;font-weight:700;padding:12px;">
+              Get Started Free
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Traveloop</div>
+        <p class="text-body-sm" style="color:var(--color-surface-variant);max-width:360px;">
+          The premium workspace for high-intent travelers.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-label-md" style="margin-bottom:16px;color:var(--color-on-secondary)">Product</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-label-md" style="margin-bottom:16px;color:var(--color-on-secondary)">Company</h4>
+        <ul class="footer-links">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="text-body-sm" style="color:var(--color-outline-variant);">© 2024 Traveloop. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="src/scripts/app.js"></script>
+  <script type="module" src="src/js/pages/sharedTrip.js"></script>
+</body>
+</html>

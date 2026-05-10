@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings — Traveloop</title>
+  <meta name="description" content="Manage your Traveloop preferences and account settings.">
+  <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body class="page-with-sidebar">
+
+  <script src="src/scripts/navigation.js"></script>
+  <script>renderSidebar('settings'); renderTopNav('Settings'); renderBottomNav('settings');</script>
+
+  <main class="page-main">
+    <div class="flex-responsive reveal" style="margin-bottom:32px;">
+      <div>
+        <h1 class="text-headline-xl">Settings</h1>
+        <p class="text-body-lg" style="color:var(--color-on-surface-variant);margin-top:8px;">Manage your account and preferences</p>
+      </div>
+    </div>
+
+    <div class="card card-bordered reveal stagger-children" style="max-width: 600px;">
+      <div style="padding: 24px; border-bottom: 1px solid rgba(193,198,215,0.3);">
+        <h3 class="text-headline-md" style="font-weight:700;">Account Settings</h3>
+      </div>
+      <div style="padding: 24px;">
+        <form id="settings-form" style="display:flex; flex-direction:column; gap:24px;">
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <label class="text-label-sm" for="pref-currency">Default Currency</label>
+            <select id="pref-currency" class="input-field" style="appearance:none; background:var(--color-surface-container-low);">
+              <option value="INR">₹ INR</option>
+              <option value="USD">$ USD</option>
+              <option value="EUR">€ EUR</option>
+              <option value="GBP">£ GBP</option>
+            </select>
+          </div>
+          
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <label class="text-label-sm">Email Notifications</label>
+            <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+              <input type="checkbox" id="pref-email-notif" checked>
+              <span class="text-body-md">Receive trip reminders and updates</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="align-self: flex-start;">
+            Save Preferences
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="src/scripts/app.js"></script>
+  <script type="module" src="src/js/pages/settings.js"></script>
+</body>
+</html>

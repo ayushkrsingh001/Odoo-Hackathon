@@ -1,0 +1,48 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Function to check if the user is the super admin
+    function isAdmin() {
+      return request.auth != null && request.auth.token.email == 'admin@traveloop.com';
+    }
+
+    // Function to check if the user is authenticated
+    function isAuth() {
+      return request.auth != null;
+    }
+
+    // Users Collection
+    match /users/{userId} {
+      // Users can read/write their own profile, Admin can read/write all
+      allow read, write: if isAuth() && (request.auth.uid == userId || isAdmin());
+    }
+
+    // Trips Collection
+    match /trips/{tripId} {
+      // Users can read/write their own trips, Admin can read/write all
+      allow read, update, delete: if isAuth() && (resource.data.userId == request.auth.uid || isAdmin());
+      // Anyone authenticated can create trips
+      allow create: if isAuth() && request.resource.data.userId == request.auth.uid;
+      
+      // Allow read if trip is public
+      allow read: if resource.data.isPublic == true;
+
+      // Subcollections (packingItems, budgets, notes)
+      match /{subcollection}/{docId} {
+        allow read, write: if isAuth() && (
+          get(/databases/$(database)/documents/trips/$(tripId)).data.userId == request.auth.uid || isAdmin()
+        );
+      }
+    }
+
+    // Shared Trips Collection
+    match /sharedTrips/{sharedId} {
+      // Anyone can read shared trips
+      allow read: if true;
+      // Users can create/update their own shared trips, Admin can manage all
+      allow create: if isAuth() && request.resource.data.authorId == request.auth.uid;
+      allow update, delete: if isAuth() && (resource.data.authorId == request.auth.uid || isAdmin());
+    }
+  }
+}

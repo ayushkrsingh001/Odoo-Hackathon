@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Trip — Traveloop</title>
+  <meta name="description" content="Plan a new journey. Set the foundation for your next great adventure with Traveloop.">
+  <meta name="theme-color" content="#004ac6">
+  <link rel="icon" type="image/svg+xml" href="assets/logo/traveloop-icon.svg">
+  <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body class="page-with-sidebar">
+
+  <script src="src/scripts/navigation.js"></script>
+  <script>renderSidebar('create-trip'); renderTopNav('Traveloop'); renderBottomNav('create-trip');</script>
+
+  <main class="page-main" style="display:flex;flex-direction:column;justify-content:center;">
+    <div style="max-width:672px;margin:0 auto;width:100%;">
+      <div style="text-align:center;margin-bottom:40px;" class="reveal">
+        <h2 class="text-headline-xl" style="margin-bottom:8px;">Plan a New Journey</h2>
+        <p class="text-body-md" style="color:var(--color-on-surface-variant);">Set the foundation for your next great adventure.</p>
+      </div>
+
+      <!-- Form Card -->
+      <div class="card card-bordered reveal" style="padding:24px;">
+        <form id="create-trip-form" style="display:flex;flex-direction:column;gap:32px;">
+          <!-- Auto-Assigned Cover Image Preview -->
+          <div style="position:relative;">
+            <img id="trip-image-preview" 
+                 src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&h=500&fit=crop" 
+                 alt="Trip cover preview" 
+                 loading="lazy"
+                 style="height:192px;width:100%;border-radius:16px;object-fit:cover;display:block;box-shadow:0 4px 16px rgba(0,0,0,0.1);">
+            <div style="position:absolute;bottom:12px;left:12px;background:rgba(0,0,0,0.55);backdrop-filter:blur(8px);padding:6px 14px;border-radius:999px;display:flex;align-items:center;gap:6px;">
+              <span class="material-symbols-outlined" style="font-size:16px;color:#fff;">auto_awesome</span>
+              <span style="font-size:12px;font-weight:600;color:#fff;">Auto-selected cover photo</span>
+            </div>
+          </div>
+          <!-- Core Details -->
+          <div style="display:flex;flex-direction:column;gap:20px;">
+            <div>
+              <label class="text-label-md" for="trip-name" style="display:block;margin-bottom:8px;margin-left:4px;">Trip Name</label>
+              <div class="input-group" style="position:relative;">
+                <span class="input-icon material-symbols-outlined" style="color:var(--color-outline);">flight_takeoff</span>
+                <input class="input-field input-with-icon" id="trip-name" type="text" placeholder="e.g., Summer in Kyoto" required>
+              </div>
+            </div>
+            <div>
+              <label class="text-label-md" for="trip-desc" style="display:block;margin-bottom:8px;margin-left:4px;">Description (Optional)</label>
+              <textarea class="input-field" id="trip-desc" rows="3" placeholder="What's the vibe of this trip?" style="resize:none;"></textarea>
+            </div>
+          </div>
+          <!-- Dates -->
+          <div class="grid-responsive-2">
+            <div>
+              <label class="text-label-md" for="start-date" style="display:block;margin-bottom:8px;margin-left:4px;">Start Date</label>
+              <div class="input-group" style="position:relative;">
+                <span class="input-icon material-symbols-outlined" style="color:var(--color-outline);">calendar_today</span>
+                <input class="input-field input-with-icon" id="start-date" type="date" required>
+              </div>
+            </div>
+            <div>
+              <label class="text-label-md" for="end-date" style="display:block;margin-bottom:8px;margin-left:4px;">End Date</label>
+              <div class="input-group" style="position:relative;">
+                <span class="input-icon material-symbols-outlined" style="color:var(--color-outline);">event</span>
+                <input class="input-field input-with-icon" id="end-date" type="date" required>
+              </div>
+            </div>
+          </div>
+          <!-- Travel Companions -->
+          <div style="background:var(--color-surface-container-low);border-radius:16px;padding:20px;border:1px solid rgba(193,198,215,0.3);display:flex;align-items:center;justify-content:space-between;">
+            <div>
+              <h3 class="text-label-md" style="margin-bottom:4px;">Travel Companions</h3>
+              <p class="text-body-sm" style="color:var(--color-on-surface-variant);">Who's joining the adventure?</p>
+            </div>
+            <div style="display:flex;align-items:center;">
+              <div class="avatar-stack" style="margin-right:16px;">
+                <img alt="Companion 1" style="width:40px;height:40px;border-radius:50%;object-fit:cover;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyzsD42Qyu4qn4IQ5SpKGr3UE9uryCMfU61WJmC84-ZZ3xu8bmV7f1fu-Z7ojKIXAjNC4hWWACm6rdjh3L43-Dm7DKj72MIAyL9Z7vxXeZoV4mLNMqC-j_9FsbC_mVT5Ex7QM-8TR3mfS7EO5cSBrcE9NewvRSDTjMPJQuIUYw3RrTEvT_YcfC8nv7Hpu5mNl35bobRD3r9UPCZ9f63VJvD1c0WhL79pU77FRSOoZD0NfIogdz6fmZ1V1RC7SO8mkvkFc8dISYmUA" loading="lazy">
+                <img alt="Companion 2" style="width:40px;height:40px;border-radius:50%;object-fit:cover;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEBCOujGg95lgVL2E43diW3wOballMMhwbWQYyHNdZMVPUoWuwl-K25UGlmRecWqwIXcxcr0MbuyOnnklPOeUPIh9ipX44-vT_A2Tq4FfFKFW1upXFNnepADupYQG8dhOiun9XfKVmVKJTLLOrfmHL2Ezd-VnBhPxz5GjKV6MPv_QQS9p0-v6qk0M4qMBxuXNgCavBm1kA0Q88wx4LKzECwvf8VXLMgpqEtM1c6mAHxa5Bl0jaqbNRsQ28TMu09xyO2QI_mjHOvGc" loading="lazy">
+              </div>
+              <button type="button" style="width:40px;height:40px;border-radius:50%;border:1px dashed var(--color-outline-variant);display:flex;align-items:center;justify-content:center;color:var(--color-on-surface-variant);transition:all 0.2s;"
+                      onmouseover="this.style.borderColor='var(--color-primary)';this.style.color='var(--color-primary)'"
+                      onmouseout="this.style.borderColor='var(--color-outline-variant)';this.style.color='var(--color-on-surface-variant)'">
+                <span class="material-symbols-outlined">person_add</span>
+              </button>
+            </div>
+          </div>
+          <!-- Actions -->
+          <div style="padding-top:16px;border-top:1px solid rgba(193,198,215,0.2);display:flex;gap:16px;">
+            <a href="my-trips.html" class="btn btn-surface" style="flex:1;padding:16px;">Cancel</a>
+            <button type="submit" id="submit-trip-btn" class="btn btn-primary" style="flex:2;padding:16px;">Create Trip</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+  <script src="src/scripts/app.js"></script>
+  <script type="module" src="src/js/pages/createTrip.js"></script>
+</body>
+</html>

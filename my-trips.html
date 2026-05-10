@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Trips — Traveloop</title>
+  <meta name="description" content="Manage and plan your upcoming adventures. View, edit, and organize all your trips in one place.">
+  <meta name="theme-color" content="#004ac6">
+  <link rel="icon" type="image/svg+xml" href="assets/logo/traveloop-icon.svg">
+  <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body class="page-with-sidebar">
+
+  <script src="src/scripts/navigation.js"></script>
+  <script>renderSidebar('my-trips'); renderTopNav('Traveloop'); renderBottomNav('my-trips');</script>
+
+  <main class="page-main">
+    <!-- Page Header -->
+    <div class="flex-responsive reveal" style="justify-content:space-between;align-items:flex-end;margin-bottom:32px;">
+      <div>
+        <h1 class="text-display-lg" style="margin-bottom:8px;">My Trips</h1>
+        <p class="text-body-lg" style="color:var(--color-on-surface-variant);">Manage and plan your adventures.</p>
+      </div>
+      <div style="display:flex; gap:12px;">
+        <a href="create-trip.html" class="btn btn-primary">
+          <span class="material-symbols-outlined" style="font-size:18px;">add</span>
+          Create Trip
+        </a>
+      </div>
+    </div>
+
+    <!-- Filters Bar -->
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; flex-wrap:wrap; gap:16px;">
+      <div class="filter-tabs reveal" style="display:flex;gap:12px;overflow-x:auto;padding-bottom:4px;">
+        <button class="filter-tab active">All</button>
+        <button class="filter-tab">Upcoming</button>
+        <button class="filter-tab">Past</button>
+        <button class="filter-tab">Drafts</button>
+      </div>
+    </div>
+
+    <!-- Trip Cards Grid -->
+    <div id="trips-grid" class="grid-responsive-3 stagger-children">
+      <!-- Loading Skeletons -->
+      <div class="skeleton" style="height:400px; border-radius:16px;"></div>
+      <div class="skeleton" style="height:400px; border-radius:16px;"></div>
+      <div class="skeleton" style="height:400px; border-radius:16px;"></div>
+    </div>
+  </main>
+
+  <script src="src/scripts/app.js"></script>
+  <script type="module" src="src/js/pages/trips.js"></script>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Itinerary Builder - Traveloop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e7e7f3",
+                    "surface-dim": "#d9d9e5",
+                    "surface-bright": "#faf8ff",
+                    "secondary-fixed-dim": "#4fdbc8",
+                    "tertiary-fixed": "#ffdbcd",
+                    "tertiary": "#943700",
+                    "inverse-primary": "#b4c5ff",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#2e3039",
+                    "surface-tint": "#0053db",
+                    "on-surface-variant": "#434655",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#dbe1ff",
+                    "surface": "#faf8ff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-primary-fixed": "#00174b",
+                    "on-tertiary": "#ffffff",
+                    "primary-container": "#2563eb",
+                    "on-surface": "#191b23",
+                    "outline": "#737686",
+                    "secondary": "#006b5f",
+                    "on-tertiary-container": "#ffede6",
+                    "secondary-container": "#6df5e1",
+                    "surface-container-low": "#f3f3fe",
+                    "on-secondary-fixed": "#00201c",
+                    "on-secondary-fixed-variant": "#005048",
+                    "on-secondary-container": "#006f64",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#360f00",
+                    "outline-variant": "#c3c6d7",
+                    "inverse-on-surface": "#f0f0fb",
+                    "on-primary-container": "#eeefff",
+                    "on-background": "#191b23",
+                    "surface-variant": "#e1e2ed",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "secondary-fixed": "#71f8e4",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#ededf9",
+                    "tertiary-container": "#bc4800",
+                    "background": "#faf8ff",
+                    "surface-container-highest": "#e1e2ed",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#004ac6",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#ffb596"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "unit": "4px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "stack-gap": "16px",
+                    "margin-mobile": "16px",
+                    "padding-card": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-xl": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+          font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- Top Navigation -->
+<header class="fixed top-0 right-0 w-full lg:w-[calc(100%-16rem)] z-30 flex justify-between items-center px-margin-mobile lg:px-margin-desktop py-4 bg-surface/80 backdrop-blur-md shadow-sm">
+<div class="flex items-center gap-4">
+<h1 class="font-headline-md text-headline-md font-bold text-primary lg:hidden">Traveloop</h1>
+<div class="hidden lg:flex items-center gap-2 text-on-surface-variant font-label-md text-label-md cursor-pointer hover:text-primary transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+<span>Japan Explorer 2024</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-70">notifications</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden cursor-pointer">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjvEV5UKeX7pmV8cDtNlyDv0FK6hxvcPie-yxCXQWXDGI4KuC034JEG6sL5fTGm2cgLwspS8rCdb2pXglibx6kDnJvfPgafPHg5pIbNLc7rprBGBkqdmyIY8X5II7Mbt_z0eOdMVONaUY0gMV-Q2FeRTs8Zg1sJqQFkrnuJfrvXxPTgHtfGT0ofN4CiZ5kMZlmVuHZILvUza_-BrpHOTP6ndiMotib_SAr5GAR8vs65QSODSB63kz1wxQXXB_mgy6ZhFaeqfmeWp4"/>
+</div>
+</div>
+</header>
+<!-- Side Navigation -->
+<nav class="fixed left-0 top-0 h-full z-40 bg-surface-container-low docked left-0 h-full w-64 hidden lg:flex flex-col border-r border-surface-variant/50 shadow-[4px_0_24px_rgba(0,0,0,0.02)]">
+<div class="p-6 pb-2">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center font-bold">T</div>
+<div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-primary">Traveloop</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Premium Planner</p>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container font-label-md text-label-md py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-primary hover:text-on-primary transition-colors duration-200">
+<span class="material-symbols-outlined">add</span>
+<span>New Trip</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto py-4">
+<ul class="space-y-1 px-4">
+<li><a class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 ease-in-out active:scale-95" href="#"><span class="material-symbols-outlined">dashboard</span>Dashboard</a></li>
+<li><a class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 ease-in-out active:scale-95" href="#"><span class="material-symbols-outlined">map</span>My Trips</a></li>
+<li><a class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 ease-in-out active:scale-95" href="#"><span class="material-symbols-outlined">add_circle</span>Create Trip</a></li>
+<li><a class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-body-md text-primary font-bold border-l-4 border-primary bg-surface-container-high transition-colors duration-200 ease-in-out active:scale-95" href="#"><span class="material-symbols-outlined filled">timeline</span>Itinerary Builder</a></li>
+<li><a class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 ease-in-out active:scale-95" href="#"><span class="material-symbols-outlined">payments</span>Budget</a></li>
+<li><a class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 ease-in-out active:scale-95" href="#"><span class="material-symbols-outlined">inventory_2</span>Packing List</a></li>
+<li><a class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 ease-in-out active:scale-95" href="#"><span class="material-symbols-outlined">notes</span>Notes</a></li>
+<li><a class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 ease-in-out active:scale-95" href="#"><span class="material-symbols-outlined">group</span>Shared Trips</a></li>
+</ul>
+<div class="mt-8 px-4">
+<p class="px-4 text-label-sm font-label-sm text-outline-variant mb-2 uppercase tracking-wider">Account</p>
+<ul class="space-y-1">
+<li><a class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 ease-in-out active:scale-95" href="#"><span class="material-symbols-outlined">person</span>Profile</a></li>
+<li><a class="flex items-center gap-3 px-4 py-3 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-200 ease-in-out active:scale-95" href="#"><span class="material-symbols-outlined">settings</span>Settings</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<!-- Bottom Navigation (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface shadow-[0_-4px_20px_rgba(0,0,0,0.05)] docked full-width bottom-0 lg:hidden rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:bg-surface-variant transition-transform duration-200 active:scale-90 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:bg-surface-variant transition-transform duration-200 active:scale-90 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">map</span>
+<span class="font-label-sm text-label-sm">Trips</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:bg-surface-variant transition-transform duration-200 active:scale-90 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">add_box</span>
+<span class="font-label-sm text-label-sm">Create</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container p-2 active:bg-surface-variant transition-transform duration-200 active:scale-90 rounded-xl" href="#">
+<span class="material-symbols-outlined filled mb-1">timeline</span>
+<span class="font-label-sm text-label-sm">Builder</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:bg-surface-variant transition-transform duration-200 active:scale-90 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</nav>
+<!-- Main Content -->
+<main class="lg:ml-64 pt-20 pb-24 lg:pb-0 min-h-screen flex flex-col">
+<!-- Trip Header Context -->
+<div class="px-margin-mobile lg:px-margin-desktop py-6 border-b border-surface-variant/50 bg-surface-bright z-10 sticky top-16">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface">Japan Explorer 2024</h2>
+<div class="flex flex-wrap items-center gap-3 mt-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">calendar_today</span> Oct 12 - Oct 26, 2024</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">group</span> 2 Travelers</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="flex items-center gap-1 text-secondary"><span class="material-symbols-outlined text-[16px]">check_circle</span> Budget: $4,500 / $5,000</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">share</span> Share
+                    </button>
+<button class="px-4 py-2 rounded-xl bg-primary-container text-on-primary-container font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-2 shadow-[0_4px_14px_rgba(37,99,235,0.2)]">
+<span class="material-symbols-outlined">publish</span> Publish
+                    </button>
+</div>
+</div>
+<!-- Progress Line -->
+<div class="absolute bottom-0 left-0 h-[2px] bg-primary w-1/3"></div>
+</div>
+<!-- 3-Column Layout -->
+<div class="flex-1 flex flex-col lg:flex-row overflow-hidden max-w-container-max mx-auto w-full p-margin-mobile lg:p-margin-desktop gap-gutter h-[calc(100vh-140px)]">
+<!-- Left Column: Timeline -->
+<aside class="w-full lg:w-64 flex-shrink-0 flex flex-col gap-4 overflow-y-auto pr-2 scrollbar-hide">
+<div class="font-label-md text-label-md text-outline-variant uppercase tracking-wider mb-2">Itinerary</div>
+<button class="w-full text-left p-4 rounded-xl bg-surface-container-high border-l-4 border-primary transition-all duration-200">
+<div class="font-label-md text-label-md text-primary mb-1">Day 1 • Oct 12</div>
+<div class="font-headline-md text-headline-md text-on-surface">Tokyo Arrival</div>
+<div class="text-body-sm text-on-surface-variant mt-2 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">flight_land</span> 3 Activities</div>
+</button>
+<button class="w-full text-left p-4 rounded-xl bg-surface border border-surface-variant/50 hover:bg-surface-container-low hover:border-surface-variant transition-all duration-200 opacity-70">
+<div class="font-label-md text-label-md text-on-surface-variant mb-1">Day 2 • Oct 13</div>
+<div class="font-headline-md text-headline-md text-on-surface">Shibuya &amp; Shinjuku</div>
+<div class="text-body-sm text-on-surface-variant mt-2 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">local_activity</span> 5 Activities</div>
+</button>
+<button class="w-full text-left p-4 rounded-xl bg-surface border border-surface-variant/50 hover:bg-surface-container-low hover:border-surface-variant transition-all duration-200 opacity-70">
+<div class="font-label-md text-label-md text-on-surface-variant mb-1">Day 3 • Oct 14</div>
+<div class="font-headline-md text-headline-md text-on-surface">Asakusa Culture</div>
+<div class="text-body-sm text-on-surface-variant mt-2 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">temple_buddhist</span> 4 Activities</div>
+</button>
+<button class="w-full text-left p-4 rounded-xl border border-dashed border-outline-variant text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors flex items-center justify-center gap-2 mt-4">
+<span class="material-symbols-outlined">add</span> Add Day
+                </button>
+</aside>
+<!-- Center Column: Active Day Schedule -->
+<section class="flex-1 flex flex-col bg-surface rounded-[24px] border border-surface-variant/50 shadow-[0_4px_20px_rgba(0,0,0,0.02)] overflow-hidden">
+<div class="p-6 border-b border-surface-variant/50 flex justify-between items-center bg-surface-bright">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Tokyo Arrival</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Saturday, October 12</p>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined">map</span>
+</button>
+<button class="w-10 h-10 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-6 bg-surface-bright relative">
+<!-- Vertical Time Line -->
+<div class="absolute left-[44px] top-6 bottom-6 w-[2px] bg-surface-variant/50"></div>
+<div class="space-y-6 relative">
+<!-- Flight Card -->
+<div class="flex gap-6 group cursor-move">
+<div class="w-16 flex-shrink-0 text-right pt-2">
+<span class="font-label-md text-label-md text-on-surface">2:30 PM</span>
+</div>
+<div class="relative z-10 mt-2">
+<div class="w-4 h-4 rounded-full bg-primary ring-4 ring-surface-bright"></div>
+</div>
+<div class="flex-1 bg-surface border border-surface-variant/50 rounded-xl p-4 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-shadow">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="w-10 h-10 rounded-lg bg-inverse-primary/30 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined">flight_land</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface text-[18px]">Arrive at Narita (NRT)</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">JAL Flight 601 • Terminal 2</p>
+</div>
+</div>
+<button class="text-outline hover:text-on-surface opacity-0 group-hover:opacity-100 transition-opacity"><span class="material-symbols-outlined">drag_indicator</span></button>
+</div>
+</div>
+</div>
+<!-- Transit Card -->
+<div class="flex gap-6 group cursor-move">
+<div class="w-16 flex-shrink-0 text-right pt-2">
+<span class="font-label-md text-label-md text-on-surface-variant">4:00 PM</span>
+</div>
+<div class="relative z-10 mt-2">
+<div class="w-4 h-4 rounded-full bg-surface-variant ring-4 ring-surface-bright border-2 border-surface"></div>
+</div>
+<div class="flex-1 bg-surface-container-low rounded-xl p-3 flex items-center gap-3">
+<span class="material-symbols-outlined text-outline">train</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Narita Express to Shinjuku Station (1h 20m)</span>
+<span class="ml-auto font-label-sm text-label-sm text-on-surface-variant bg-surface px-2 py-1 rounded">$28</span>
+</div>
+</div>
+<!-- Hotel Card -->
+<div class="flex gap-6 group cursor-move">
+<div class="w-16 flex-shrink-0 text-right pt-2">
+<span class="font-label-md text-label-md text-on-surface">5:30 PM</span>
+</div>
+<div class="relative z-10 mt-2">
+<div class="w-4 h-4 rounded-full bg-secondary ring-4 ring-surface-bright"></div>
+</div>
+<div class="flex-1 bg-surface border border-surface-variant/50 rounded-[24px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-shadow">
+<div class="h-24 w-full relative">
+<div class="absolute inset-0 bg-secondary/10"></div>
+<!-- Placeholder for image, omitted to follow instructions, just gradient -->
+<div class="absolute inset-0 bg-gradient-to-r from-secondary-container/40 to-surface-bright"></div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center mt-[-30px] relative shadow-sm border border-surface">
+<span class="material-symbols-outlined">hotel</span>
+</div>
+<div>
+<div class="flex gap-2 items-center mb-1">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-[10px]">Check-in</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-sm text-[10px] flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">star</span> 4.5</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface text-[18px]">Park Hyatt Tokyo</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">3-7-1-2 Nishi Shinjuku, Shinjuku-Ku</p>
+</div>
+</div>
+<button class="text-outline hover:text-on-surface opacity-0 group-hover:opacity-100 transition-opacity"><span class="material-symbols-outlined">drag_indicator</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Dinner Card -->
+<div class="flex gap-6 group cursor-move">
+<div class="w-16 flex-shrink-0 text-right pt-2">
+<span class="font-label-md text-label-md text-on-surface">7:30 PM</span>
+</div>
+<div class="relative z-10 mt-2">
+<div class="w-4 h-4 rounded-full bg-tertiary ring-4 ring-surface-bright"></div>
+</div>
+<div class="flex-1 bg-surface border border-surface-variant/50 rounded-xl p-4 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-shadow">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface text-[18px]">Omoide Yokocho Dinner</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Casual yakitori &amp; drinks in narrow alleys.</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<button class="text-outline hover:text-on-surface opacity-0 group-hover:opacity-100 transition-opacity"><span class="material-symbols-outlined">drag_indicator</span></button>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2 py-1 rounded">~$40</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Add Activity Drop Zone -->
+<div class="ml-28 mt-6 p-4 rounded-xl border-2 border-dashed border-primary/30 bg-primary/5 text-primary text-center font-label-md text-label-md cursor-pointer hover:bg-primary/10 transition-colors">
+                        + Drop Activity Here or Click to Add
+                    </div>
+</div>
+</section>
+<!-- Right Column: Add Activity Context Panel -->
+<aside class="w-full lg:w-80 flex-shrink-0 flex flex-col bg-surface rounded-[24px] border border-surface-variant/50 shadow-[0_4px_20px_rgba(0,0,0,0.02)] overflow-hidden">
+<div class="p-6 border-b border-surface-variant/50 bg-surface-bright">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Discover Ideas</h3>
+<!-- Search Input -->
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-low border-none rounded-xl font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:bg-surface transition-all placeholder:text-outline-variant" placeholder="Search Tokyo..." type="text"/>
+</div>
+<!-- Chips -->
+<div class="flex gap-2 mt-4 overflow-x-auto scrollbar-hide pb-1">
+<span class="px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm whitespace-nowrap cursor-pointer hover:bg-surface-variant transition-colors">Food</span>
+<span class="px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm whitespace-nowrap cursor-pointer hover:bg-surface-variant transition-colors">Sights</span>
+<span class="px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm whitespace-nowrap cursor-pointer hover:bg-surface-variant transition-colors">Museums</span>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-4 bg-surface-container-lowest">
+<!-- Recommendation Card 1 -->
+<div class="bg-surface border border-surface-variant/50 rounded-[16px] overflow-hidden hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-shadow cursor-grab">
+<div class="h-20 w-full bg-gradient-to-r from-surface-variant to-surface-dim relative">
+<div class="absolute bottom-2 right-2 px-2 py-1 bg-surface/80 backdrop-blur rounded font-label-sm text-[10px] text-on-surface">1.2 mi away</div>
+</div>
+<div class="p-3">
+<h4 class="font-label-md text-label-md text-on-surface">Meiji Jingu Shrine</h4>
+<p class="font-body-sm text-[12px] text-on-surface-variant mt-1 mb-3 line-clamp-2">Shinto shrine dedicated to the deified spirits of Emperor Meiji.</p>
+<button class="w-full py-1.5 bg-surface-container text-on-surface font-label-sm text-label-sm rounded-lg hover:bg-surface-container-highest transition-colors">Add to Day 1</button>
+</div>
+</div>
+<!-- Recommendation Card 2 -->
+<div class="bg-surface border border-surface-variant/50 rounded-[16px] overflow-hidden hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-shadow cursor-grab">
+<div class="h-20 w-full bg-gradient-to-r from-tertiary-container/30 to-surface-dim relative">
+<div class="absolute top-2 left-2 px-2 py-1 bg-tertiary text-on-tertiary rounded font-label-sm text-[10px] flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">star</span> Must Do</div>
+</div>
+<div class="p-3">
+<h4 class="font-label-md text-label-md text-on-surface">Tsukiji Outer Market</h4>
+<p class="font-body-sm text-[12px] text-on-surface-variant mt-1 mb-3 line-clamp-2">Bustling retail market featuring seafood, produce &amp; food stalls.</p>
+<button class="w-full py-1.5 bg-surface-container text-on-surface font-label-sm text-label-sm rounded-lg hover:bg-surface-container-highest transition-colors">Add to Day 1</button>
+</div>
+</div>
+<!-- Recommendation Card 3 -->
+<div class="bg-surface border border-surface-variant/50 rounded-[16px] overflow-hidden hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-shadow cursor-grab">
+<div class="p-3">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex-shrink-0 flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[16px]">local_cafe</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Blue Bottle Coffee</h4>
+<p class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">Quick stop • Shinjuku</p>
+</div>
+</div>
+<button class="w-full mt-3 py-1.5 bg-surface-container text-on-surface font-label-sm text-label-sm rounded-lg hover:bg-surface-container-highest transition-colors">Add to Day 1</button>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+</body></html>
