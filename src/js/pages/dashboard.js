@@ -61,11 +61,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <h1>Welcome back, ${firstName} 👋</h1>
                 <p>${subtitle}</p>
                 <div class="dash-hero-actions">
-                    <a href="create-trip.html" class="btn btn-primary" style="padding:12px 24px; font-size:15px; font-weight:600; border-radius:14px;">
+                    <a href="create-trip.html" class="btn btn-primary magnetic-lift" style="padding:12px 24px; font-size:15px; font-weight:600; border-radius:14px;">
                         <span class="material-symbols-outlined" style="font-size:20px;">add</span>
                         Create New Trip
                     </a>
-                    <a href="shared-trips.html" class="btn btn-surface" style="padding:12px 24px; font-size:15px; font-weight:600; border-radius:14px; border:1px solid rgba(0,0,0,0.1);">
+                    <a href="shared-trips.html" class="btn btn-surface magnetic-lift" style="padding:12px 24px; font-size:15px; font-weight:600; border-radius:14px; border:1px solid rgba(0,0,0,0.1);">
                         <span class="material-symbols-outlined" style="font-size:20px;">explore</span>
                         Explore Destinations
                     </a>
@@ -111,22 +111,22 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const kpiGrid = document.getElementById('kpi-grid');
     kpiGrid.innerHTML = `
-            <div class="kpi-card">
+            <div class="kpi-card hover-shine glass-hover">
                 <div class="kpi-icon"><span class="material-symbols-outlined">flight_takeoff</span></div>
                 <div class="kpi-number">${totalTrips}</div>
                 <div class="kpi-label">Total Trips</div>
             </div>
-            <div class="kpi-card">
+            <div class="kpi-card hover-shine glass-hover">
                 <div class="kpi-icon"><span class="material-symbols-outlined">calendar_month</span></div>
                 <div class="kpi-number">${upcomingTrips}</div>
                 <div class="kpi-label">Upcoming Trips</div>
             </div>
-            <div class="kpi-card">
+            <div class="kpi-card hover-shine glass-hover">
                 <div class="kpi-icon"><span class="material-symbols-outlined">account_balance_wallet</span></div>
                 <div class="kpi-number">₹${formatNumber(totalBudget)}</div>
                 <div class="kpi-label">Estimated Budget</div>
             </div>
-            <div class="kpi-card">
+            <div class="kpi-card hover-shine glass-hover">
                 <div class="kpi-icon"><span class="material-symbols-outlined">public</span></div>
                 <div class="kpi-number">${countriesCount}</div>
                 <div class="kpi-label">Destinations</div>
@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
 
       const card = document.createElement('div');
-      card.className = 'dash-trip-card';
+      card.className = 'dash-trip-card hover-shine';
       card.innerHTML = `
                 <img class="dash-trip-card-img" src="${coverImg}" alt="${trip.name}" loading="lazy">
                 <div class="dash-trip-card-body">

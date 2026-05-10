@@ -97,13 +97,15 @@
   top: 0;
   right: 0;
   width: 100%;
-  z-index: 30;
+  z-index: 100; /* Higher z-index to stay on top */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px var(--margin-mobile);
-  background: transparent;
+  padding: 0 var(--margin-mobile);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-outline-variant);
   transition: all var(--transition-default);
+  height: 80px; /* Standardized height */
 }
 
 .topnav.scrolled {
@@ -132,16 +134,18 @@
 .topnav-search input {
   width: 100%;
   background-color: var(--color-surface-container-low);
-  border: none;
-  border-radius: var(--radius-md);
-  padding: 12px 16px 12px 44px;
+  border: 1.5px solid var(--color-outline-variant);
+  border-radius: 12px;
+  padding: 10px 16px 10px 44px;
   font-size: var(--fs-body-sm);
   color: var(--color-on-surface);
-  transition: all var(--transition-default);
+  transition: all var(--transition-fast);
 }
 
 .topnav-search input:focus {
-  box-shadow: 0 0 0 2px var(--color-primary);
+  background-color: white;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(0, 74, 198, 0.1);
 }
 
 .topnav-actions {
@@ -261,7 +265,7 @@
 
 .page-main {
   flex: 1;
-  padding-top: 96px;
+  padding-top: 128px; /* Increased padding to prevent any overlap */
   padding-bottom: 96px;
   padding-left: var(--margin-mobile);
   padding-right: var(--margin-mobile);
@@ -323,7 +327,7 @@
   .topnav {
     left: 280px;
     width: calc(100% - 280px);
-    padding: 16px var(--margin-desktop);
+    padding: 0 var(--margin-desktop);
   }
 
   .topnav-brand-mobile {

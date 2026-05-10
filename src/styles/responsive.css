@@ -15,7 +15,7 @@
   .text-headline-lg { font-size: 1.5rem; }
   
   .page-main {
-    padding-top: 80px;
+    padding-top: 112px; /* Sufficient for 80px nav + gap */
     padding-bottom: 80px;
   }
 
@@ -45,7 +45,7 @@
 @media (min-width: 1024px) {
   .page-main {
     margin-left: 280px;
-    padding: var(--margin-desktop);
+    padding: 128px var(--margin-desktop) 48px var(--margin-desktop);
     max-width: calc(var(--container-max) + 280px);
   }
 

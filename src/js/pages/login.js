@@ -16,21 +16,21 @@ document.addEventListener('DOMContentLoaded', () => {
       authTabs.forEach(t => t.classList.remove('active'));
       e.target.classList.add('active');
       isLoginMode = e.target.textContent.trim() === 'Log In';
-      loginBtn.innerHTML = isLoginMode ? 'Log In <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>' : 'Sign Up <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>';
+      loginBtn.innerHTML = isLoginMode ? 'Log In <span class="material-symbols-outlined" style="font-size:20px;">arrow_forward</span>' : 'Sign Up <span class="material-symbols-outlined" style="font-size:20px;">arrow_forward</span>';
       
       // Optionally handle adding a name field for Sign Up
       let nameField = document.getElementById('name-container');
       if (!isLoginMode && !nameField) {
         const nameHtml = `
-          <div id="name-container" style="display:flex;flex-direction:column;gap:4px;">
-            <label class="text-label-sm" style="color:var(--color-on-surface-variant);" for="name">Full Name</label>
-            <div class="input-group" style="position:relative;">
-              <span class="input-icon material-symbols-outlined" style="color:var(--color-outline)">person</span>
-              <input class="input-field input-with-icon" id="name" type="text" placeholder="John Doe">
+          <div id="name-container" class="auth-input-group">
+            <label for="name">Full Name</label>
+            <div class="auth-input-wrapper">
+              <span class="material-symbols-outlined">person</span>
+              <input class="auth-input" id="name" type="text" placeholder="John Doe">
             </div>
           </div>
         `;
-        emailInput.closest('div[style*="flex-direction:column"]').insertAdjacentHTML('beforebegin', nameHtml);
+        emailInput.closest('.auth-input-group').insertAdjacentHTML('beforebegin', nameHtml);
       } else if (isLoginMode && nameField) {
         nameField.remove();
       }
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error("Auth error", error);
       alert(error.message); // In a real app, use toast
       loginBtn.disabled = false;
-      loginBtn.innerHTML = isLoginMode ? 'Log In <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>' : 'Sign Up <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>';
+      loginBtn.innerHTML = isLoginMode ? 'Log In <span class="material-symbols-outlined" style="font-size:20px;">arrow_forward</span>' : 'Sign Up <span class="material-symbols-outlined" style="font-size:20px;">arrow_forward</span>';
     }
   });
 

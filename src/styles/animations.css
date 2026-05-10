@@ -169,14 +169,102 @@ body {
 
 /* ── Subtle float animation ── */
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
 }
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+/* ── Premium High-End Animations ── */
+
+/* 1. Shine Effect (Sweep of light) */
+@keyframes shine {
+  0% { left: -100%; }
+  20% { left: 100%; }
+  100% { left: 100%; }
+}
+
+.hover-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: none;
+}
+
+.hover-shine:hover::after {
+  animation: shine 0.8s ease-in-out;
+}
+
+/* 2. Glass Hover (Depth increase) */
+.glass-hover {
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.glass-hover:hover {
+  background: rgba(255, 255, 255, 0.4) !important;
+  backdrop-filter: blur(20px) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* 3. Magnetic-like lift */
+.magnetic-lift {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.magnetic-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* 4. Smooth Content Reveal */
+@keyframes revealContent {
+  from { opacity: 0; clip-path: inset(10% 0 0 0); transform: translateY(10px); }
+  to { opacity: 1; clip-path: inset(0 0 0 0); transform: translateY(0); }
+}
+
+.reveal-premium {
+  animation: revealContent 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+/* 5. Icon Bounce */
+.hover-bounce-icon:hover .material-symbols-outlined {
+  animation: iconBounce 0.5s ease;
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* 6. Text Glow (Subtle) */
+.text-glow:hover {
+  text-shadow: 0 0 8px rgba(var(--color-primary-rgb), 0.3);
+}
+
+/* ── Page Transition ── */
+.page-fade-in {
+  animation: pageFadeIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes pageFadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
 }

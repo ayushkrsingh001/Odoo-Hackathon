@@ -99,20 +99,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             setupPackingListener(tripId);
             
-            initTripSelector({
-                containerId: 'trip-selector-section',
-                title: 'Smart Packing',
-                subtitle: 'Select a trip to get AI-powered packing recommendations tailored to your destination.',
-                selectedTripId: tripId,
-                userId: user.uid,
-                onSelect: async (newId) => {
-                    const newUrl = window.location.pathname + '?tripId=' + newId;
-                    window.history.pushState({ path: newUrl }, '', newUrl);
-                    localStorage.setItem('lastViewedTripId', newId);
-                    await loadTripWorkspace(newId);
-                }
-            });
-
             if (window.initScrollAnimations) window.initScrollAnimations();
         } catch (error) {
             console.error("Error loading smart packing data:", error);

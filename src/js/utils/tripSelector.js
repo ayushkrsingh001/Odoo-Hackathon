@@ -47,21 +47,31 @@ export function initTripSelector(options) {
             return;
         }
 
+        grid.className = 'grid-responsive grid-3 stagger-children';
         grid.style.display = 'grid';
+        grid.style.marginBottom = '48px';
         emptyState.style.display = 'none';
         grid.innerHTML = '';
 
         trips.forEach(trip => {
             const isSelected = trip.id === selectedTripId;
             const card = document.createElement('div');
-            card.className = `trip-select-card ${isSelected ? 'selected' : ''}`;
+            card.className = `trip-select-card hover-shine ${isSelected ? 'selected' : ''}`;
             
-            const startDate = new Date(trip.startDate);
-            const endDate = new Date(trip.endDate);
-            const duration = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
-            const dateStr = startDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + 
-                          ' - ' + 
-                          endDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            let dateStr = 'Dates not set';
+            let durationStr = '';
+            
+            if (trip.startDate && trip.endDate) {
+                const startDate = new Date(trip.startDate);
+                const endDate = new Date(trip.endDate);
+                if (!isNaN(startDate) && !isNaN(endDate)) {
+                    const duration = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
+                    dateStr = startDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + 
+                              ' - ' + 
+                              endDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                    durationStr = `(${duration} Days)`;
+                }
+            }
 
             card.innerHTML = `
                 <img src="${trip.coverImage || 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800'}" class="card-icon" alt="${trip.name}">
@@ -69,11 +79,11 @@ export function initTripSelector(options) {
                     <h3 class="text-headline-sm" style="margin-bottom:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${trip.name}</h3>
                     <p class="text-body-sm" style="color:var(--color-on-surface-variant); display:flex; align-items:center; gap:4px; margin-bottom:4px;">
                         <span class="material-symbols-outlined" style="font-size:14px;">location_on</span>
-                        ${trip.destination || trip.country || 'No destination'}
+                        ${trip.destination || trip.country || 'Flexible Location'}
                     </p>
                     <p class="text-body-sm" style="color:var(--color-on-surface-variant); display:flex; align-items:center; gap:4px;">
                         <span class="material-symbols-outlined" style="font-size:14px;">calendar_today</span>
-                        ${dateStr} (${duration} Days)
+                        ${dateStr} ${durationStr}
                     </p>
                 </div>
                 ${isSelected ? '<span class="material-symbols-outlined" style="color:var(--color-primary); font-size:24px;">check_circle</span>' : ''}
